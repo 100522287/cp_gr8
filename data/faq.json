@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "pregunta": "¿Cómo puedo reservar un pack de viaje?",
+        "respuesta": "Puedes reservar directamente desde la página de 'Packs'. Selecciona el viaje que te gusta, elige tus fechas y sigue los pasos de pago seguro."
+    },
+    {
+        "id": 2,
+        "pregunta": "¿Es seguro el pago con tarjeta?",
+        "respuesta": "Totalmente. Utilizamos pasarelas de pago encriptadas (SSL) y aceptamos Visa, Mastercard y PayPal para garantizar tu seguridad."
+    },
+    {
+        "id": 3,
+        "pregunta": "¿Puedo cancelar mi reserva?",
+        "respuesta": "Sí. Puedes cancelar sin coste hasta 48 horas antes de la salida del viaje. Pasado ese tiempo, se aplicará una penalización del 20%."
+    },
+    {
+        "id": 4,
+        "pregunta": "¿Incluyen los vuelos?",
+        "respuesta": "Depende del pack. La mayoría de nuestros packs 'Aventura' incluyen vuelos internacionales, pero los packs 'Escapada' suelen incluir solo hotel y actividades. Revisa el detalle de cada oferta."
+    },
+    {
+        "id": 5,
+        "pregunta": "¿Viajáis con grupos grandes?",
+        "respuesta": "Intentamos mantener la esencia mochilera. Nuestros grupos son reducidos, normalmente entre 8 y 12 personas, para asegurar una experiencia auténtica."
+    },
+    {
+        "id": 6,
+        "pregunta": "¿Necesito visado para los viajes?",
+        "respuesta": "Para destinos fuera de la Unión Europea, es posible que necesites visado. Te enviaremos toda la información necesaria al confirmar tu reserva."
+    }
+]

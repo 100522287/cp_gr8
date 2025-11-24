@@ -1,0 +1,130 @@
+/* ============================================
+   ESTILOS ESPECÍFICOS PARA FAQ (Preguntas Frecuentes)
+   ============================================ */
+
+/* --- HEADER FAQ (Igual que Packs y Artículos) --- */
+.header-faq {
+    background: linear-gradient(135deg, #0077B6 0%, #023E8A 100%);
+    padding: 60px 50px;
+    text-align: center;
+    color: white;
+}
+
+.header-faq h1 {
+    font-size: 2.5rem;
+    margin: 0 0 15px 0;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+.header-faq p {
+    font-size: 1.2rem;
+    opacity: 0.95;
+}
+
+/* --- CONTENEDOR FAQ --- */
+.contenedor-faq-principal {
+    background: white;
+    padding: 40px 50px;
+    max-width: 900px; /* Un poco más estrecho para leer mejor */
+    margin: 0 auto;
+}
+
+/* --- ÍTEM DE ACORDEÓN --- */
+.faq-item {
+    border: 1px solid #E0E0E0;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    background-color: #fff;
+}
+
+.faq-item:hover {
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    border-color: #0077B6;
+}
+
+/* --- PREGUNTA (CABLECERA CLICKABLE) --- */
+.faq-pregunta {
+    background-color: #F8F9FA;
+    padding: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 700;
+    color: #2C3E50;
+    font-size: 1.1rem;
+    transition: background-color 0.3s;
+}
+
+.faq-pregunta:hover {
+    background-color: #E1F5FE;
+    color: #0077B6;
+}
+
+/* La flechita */
+.faq-pregunta::after {
+    content: '+';
+    font-size: 1.5rem;
+    color: #0077B6;
+    font-weight: bold;
+    transition: transform 0.3s;
+}
+
+/* Estado ACTIVO (Cuando está abierto) */
+.faq-item.active .faq-pregunta {
+    background-color: #0077B6;
+    color: white;
+}
+
+.faq-item.active .faq-pregunta::after {
+    content: '-';
+    color: white;
+    transform: rotate(180deg);
+}
+
+/* --- RESPUESTA (OCULTA POR DEFECTO) --- */
+.faq-respuesta {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    background-color: white;
+}
+
+.faq-respuesta p {
+    padding: 20px;
+    margin: 0;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* --- ESTILO PARA MENÚ ACTIVO (Subrayado amarillo) --- */
+.navbar .active {
+    color: #0077B6 !important;
+    font-weight: 700;
+    position: relative;
+}
+
+.navbar .active::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    bottom: -5px;
+    left: 0;
+    background-color: #FFB703;
+    border-radius: 2px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .contenedor-faq-principal {
+        padding: 20px;
+    }
+    .header-faq {
+        padding: 40px 20px;
+    }
+}
