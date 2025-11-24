@@ -1,35 +1,30 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // Iniciar Carrusel
+    // Iniciar Carrusel si existe en la página
     carrusel();
 });
 
 // --- FUNCIÓN CARRUSEL (CARGA DINÁMICA JSON) ---
 async function carrusel() {
-    console.log("Iniciando carrusel de artículos...");
-
     const track = document.getElementById("track-articulos");
     const botonIzq = document.getElementById("boton_izq_articulos");
     const botonDer = document.getElementById("boton_der_articulos");
 
-    // Verificación de seguridad
-    if (!track || !botonIzq || !botonDer) {
-        console.error("No se encuentran los elementos del carrusel en el HTML");
-        return;
-    }
+    // Si no existen los elementos (ej: estamos en la página de Packs), no hacemos nada
+    if (!track || !botonIzq || !botonDer) return;
 
-    // 1. CARGAR DATOS DESDE JSON (AJAX/Fetch)
+    console.log("Iniciando carrusel de home...");
+
     try {
-        // Pide los datos al archivo
         const response = await fetch('data/articulos.json');
-        
-        // Si hay error en la red
         if (!response.ok) throw new Error('No se pudo cargar articulos.json');
         
         const articulos = await response.json();
         
-        // Generar HTML dinámicamente
+        // Solo cogemos los primeros 5 para el carrusel
+        const articulosCarrusel = articulos.slice(0, 5);
+        
         let htmlContent = "";
-        articulos.forEach(art => {
+        articulosCarrusel.forEach(art => {
             htmlContent += `
                 <div class="tarjeta-articulo">
                     <div class="articulo-img">
@@ -43,30 +38,23 @@ async function carrusel() {
             `;
         });
         
-        // Inyectar el HTML en la página
         track.innerHTML = htmlContent;
 
     } catch (error) {
-        console.error("Error cargando los artículos:", error);
-        // Fallback visual por si algo falla
-        track.innerHTML = "<p style='padding:20px'>Cargando artículos...</p>";
+        console.error("Error cargando carrusel:", error);
     }
 
-    // 2. FUNCIONES DE MOVIMIENTO
-    function obtenerAnchoDesplazamiento() {
+    // Funciones de movimiento
+    function obtenerAncho() {
         const tarjeta = track.querySelector('.tarjeta-articulo');
         return tarjeta ? tarjeta.offsetWidth + 30 : 300; 
     }
 
-    function avanzar() {
-        track.scrollBy({ left: obtenerAnchoDesplazamiento(), behavior: 'smooth' });
-    }
+    botonDer.addEventListener("click", () => {
+        track.scrollBy({ left: obtenerAncho(), behavior: 'smooth' });
+    });
 
-    function retroceder() {
-        track.scrollBy({ left: -obtenerAnchoDesplazamiento(), behavior: 'smooth' });
-    }
-
-    // 3. EVENT LISTENERS
-    botonDer.addEventListener("click", avanzar);
-    botonIzq.addEventListener("click", retroceder);
+    botonIzq.addEventListener("click", () => {
+        track.scrollBy({ left: -obtenerAncho(), behavior: 'smooth' });
+    });
 }

@@ -2,29 +2,28 @@
    ESTILOS ESPECÍFICOS PARA LA PÁGINA DE ARTÍCULOS
    ============================================ */
 
-/* --- HEADER ARTÍCULOS (HERO) --- */
-/* Usamos un degradado diferente para distinguirlo de Packs */
-.hero-simple {
+/* --- HEADER ARTÍCULOS (Estilo IDÉNTICO a Packs) --- */
+.header-articulos {
     background: linear-gradient(135deg, #0077B6 0%, #023E8A 100%);
-    color: white;
-    padding: 60px 20px;
+    padding: 60px 50px;
     text-align: center;
-    margin-bottom: 40px;
-    border-radius: 0 0 20px 20px; /* Curva suave abajo */
+    color: white;
+    margin-bottom: 0; 
 }
 
-.hero-simple h1 {
-    font-size: 2.8rem;
+.header-articulos h1 {
+    font-size: 2.5rem;
     margin: 0 0 15px 0;
     font-weight: 700;
+    text-transform: uppercase;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
 }
 
-.hero-simple p {
+.header-articulos p {
     font-size: 1.2rem;
-    opacity: 0.9;
-    max-width: 700px;
+    opacity: 0.95;
     margin: 0 auto;
+    max-width: 800px;
 }
 
 /* --- REJILLA DE ARTÍCULOS --- */
@@ -32,9 +31,8 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 30px;
-    padding: 0 40px 60px 40px; /* Espacio alrededor */
-    max-width: 1200px;
-    margin: 0 auto;
+    padding: 40px 50px;
+    background-color: #FFFFFF;
 }
 
 /* --- TARJETA DE ARTÍCULO INDIVIDUAL --- */
@@ -42,7 +40,7 @@
     background: white;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
@@ -50,8 +48,9 @@
 }
 
 .articulo-completo:hover {
-    transform: translateY(-8px); /* Sube un poco al pasar el ratón */
+    transform: translateY(-8px);
     box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    border-color: #0077B6;
 }
 
 .articulo-completo img {
@@ -61,21 +60,20 @@
     transition: transform 0.5s ease;
 }
 
-/* Efecto zoom en la imagen al pasar el ratón */
 .articulo-completo:hover img {
     transform: scale(1.05);
 }
 
 .contenido-art {
     padding: 25px;
-    flex-grow: 1; /* Para que ocupen toda la altura */
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
 }
 
 .contenido-art h3 {
     margin-top: 0;
-    color: #264653; /* Color oscuro elegante */
+    color: #0077B6;
     font-size: 1.4rem;
     line-height: 1.3;
     margin-bottom: 15px;
@@ -87,12 +85,11 @@
     font-size: 0.95rem;
     line-height: 1.6;
     margin-bottom: 20px;
-    flex-grow: 1; /* Empuja el botón hacia abajo */
+    flex-grow: 1;
 }
 
-/* --- BOTÓN "LEER MÁS" --- */
 .contenido-art a {
-    color: #E76F51; /* Color naranja calido */
+    color: #FFB703;
     text-decoration: none;
     font-weight: 700;
     font-size: 0.9rem;
@@ -100,31 +97,53 @@
     align-items: center;
     gap: 5px;
     transition: gap 0.3s;
+    text-transform: uppercase;
+    font-size: 0.85rem;
 }
 
 .contenido-art a:hover {
-    gap: 10px; /* La flecha se separa al hacer hover */
-    color: #D64528;
+    gap: 10px;
+    color: #fb8500;
 }
 
-/* --- MEDIA QUERIES (RESPONSIVE) --- */
-
-/* Tablet y Móvil grande */
+/* --- RESPONSIVE --- */
 @media (max-width: 900px) {
     .grid-articulos {
         grid-template-columns: repeat(2, 1fr);
-        padding: 0 20px 40px 20px;
+        padding: 30px 20px;
     }
 }
 
-/* Móvil pequeño */
 @media (max-width: 600px) {
     .grid-articulos {
-        grid-template-columns: 1fr; /* Una sola columna */
+        grid-template-columns: 1fr;
         gap: 20px;
     }
-
-    .hero-simple h1 {
+    .header-articulos {
+        padding: 40px 20px;
+    }
+    .header-articulos h1 {
         font-size: 2rem;
     }
+}
+
+/* =========================================================
+   AQUÍ ESTÁ LA MAGIA: ESTILOS PARA EL MENÚ ACTIVO (Amarillo)
+   ========================================================= */
+.navbar .active {
+    color: #0077B6 !important; /* Texto azul */
+    font-weight: 700;
+    position: relative;
+}
+
+/* Esto dibuja la línea amarilla debajo */
+.navbar .active::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    bottom: -5px;
+    left: 0;
+    background-color: #FFB703; /* AMARILLO */
+    border-radius: 2px;
 }
