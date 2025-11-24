@@ -22,11 +22,41 @@
     {
         "id": 5,
         "pregunta": "¿Viajáis con grupos grandes?",
-        "respuesta": "Intentamos mantener la esencia mochilera. Nuestros grupos son reducidos, normalmente entre 8 y 12 personas, para asegurar una experiencia auténtica."
+        "respuesta": "Intentamos mantener la esencia mochilera. Nuestros grupos son reducidos, normalmente entre 8 y 12 personas, para asegurar una experiencia auténtica y flexible."
     },
     {
         "id": 6,
         "pregunta": "¿Necesito visado para los viajes?",
-        "respuesta": "Para destinos fuera de la Unión Europea, es posible que necesites visado. Te enviaremos toda la información necesaria al confirmar tu reserva."
+        "respuesta": "Para destinos fuera de la Unión Europea, es posible que necesites visado. Te enviaremos toda la información y ayuda necesaria para tramitarlo al confirmar tu reserva."
+    },
+    {
+        "id": 7,
+        "pregunta": "¿El seguro de viaje está incluido?",
+        "respuesta": "Todos nuestros packs incluyen un seguro básico de asistencia sanitaria. Sin embargo, recomendamos encarecidamente contratar el seguro de cancelación opcional durante el proceso de reserva."
+    },
+    {
+        "id": 8,
+        "pregunta": "¿Puedo viajar solo/a?",
+        "respuesta": "¡Por supuesto! De hecho, el 70% de nuestros viajeros se apuntan solos. Te asignaremos compañero/a de habitación del mismo género para que no pagues suplemento, o puedes elegir habitación individual si lo prefieres."
+    },
+    {
+        "id": 9,
+        "pregunta": "¿Qué tipo de equipaje debo llevar?",
+        "respuesta": "Recomendamos encarecidamente viajar con mochila, no con maleta rígida, ya que nos moveremos en transporte local y a veces por terrenos irregulares. En la ficha de cada viaje tienes una lista recomendada."
+    },
+    {
+        "id": 10,
+        "pregunta": "¿Tengo que vacunarme?",
+        "respuesta": "Depende del destino. Siempre recomendamos visitar tu Centro de Vacunación Internacional más cercano al menos un mes antes del viaje para recibir asesoramiento médico oficial."
+    },
+    {
+        "id": 11,
+        "pregunta": "¿Hay opciones para vegetarianos o alérgicos?",
+        "respuesta": "Sí. Al hacer tu reserva podrás indicar tus restricciones alimentarias. Nos encargaremos de avisar a los alojamientos y restaurantes previstos para que tengas opciones seguras."
+    },
+    {
+        "id": 12,
+        "pregunta": "¿En qué idioma son las visitas?",
+        "respuesta": "Nuestros coordinadores hablan español. Los guías locales suelen hablar inglés o español, dependiendo del destino remoto, pero el coordinador siempre estará ahí para traducir."
     }
 ]
