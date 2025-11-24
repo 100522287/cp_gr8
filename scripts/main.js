@@ -20,8 +20,8 @@ async function carrusel() {
         
         const articulos = await response.json();
         
-        // Solo cogemos los primeros 5 para el carrusel
-        const articulosCarrusel = articulos.slice(0, 5);
+        // Solo cogemos los primeros para el carrusel
+        const articulosCarrusel = articulos.slice(0, 7);
         
         let htmlContent = "";
         articulosCarrusel.forEach(art => {
