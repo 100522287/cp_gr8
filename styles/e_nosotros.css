@@ -1,0 +1,136 @@
+/* ============================================
+   ESTILOS ESPECÍFICOS PARA LA PÁGINA NOSOTROS
+   ============================================ */
+
+/* --- HEADER DE LA PÁGINA --- */
+.header-nosotros {
+    /* Mismo estilo de gradiente azul que el resto de la web */
+    background: linear-gradient(135deg, #0077B6 0%, #023E8A 100%);
+    padding: 40px 50px;
+    text-align: center;
+    color: white;
+}
+
+.header-nosotros h1 {
+    font-size: 2.5rem;
+    margin: 0;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+/* --- CONTENEDOR PRINCIPAL CON FONDO DECORATIVO --- */
+.main-nosotros {
+    /* Reemplazo del fondo de hojas verdes por un azul muy suave y textura */
+    background-color: #E1F5FE;
+    background-image: radial-gradient(#0077B6 0.5px, transparent 0.5px);
+    background-size: 20px 20px; /* Patrón de puntos sutil */
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.contenido-nosotros {
+    max-width: 900px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* --- IMAGEN HERO (La foto del grupo) --- */
+.imagen-equipo {
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+    border-radius: 15px;
+    border: 4px solid white;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    position: relative;
+    z-index: 2; /* Para que quede por encima si solapamos algo */
+}
+
+.imagen-equipo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Ajusta la posición de la imagen si se cortan las cabezas */
+    object-position: center 30%; 
+    transition: transform 0.5s ease;
+}
+
+.imagen-equipo:hover img {
+    transform: scale(1.05);
+}
+
+/* --- CAJA DE TEXTO (Sustituye a la caja marrón) --- */
+.caja-texto-mision {
+    /* Usamos el Azul Oscuro de tu marca en vez del marrón */
+    background: linear-gradient(180deg, #003049 0%, #023E8A 100%);
+    color: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 48, 73, 0.3);
+    border: 2px solid #FFB703; /* Borde amarillo para resaltar */
+    position: relative;
+    margin-top: -20px; /* Pequeño solapamiento visual */
+    z-index: 1;
+}
+
+.caja-texto-mision p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    text-align: justify; /* Texto justificado para que se vea elegante */
+}
+
+.caja-texto-mision p:last-child {
+    margin-bottom: 0;
+}
+
+.frase-cierre {
+    font-weight: 700;
+    text-align: center !important;
+    color: #FFB703; /* Amarillo para destacar la frase final */
+    font-size: 1.2rem !important;
+    margin-top: 30px;
+    font-style: italic;
+}
+
+/* --- MENU ACTIVO (Línea amarilla) --- */
+.navbar .active {
+    color: #0077B6 !important;
+    font-weight: 700;
+    position: relative;
+}
+
+.navbar .active::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    bottom: -5px;
+    left: 0;
+    background-color: #FFB703;
+    border-radius: 2px;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .main-nosotros {
+        padding: 20px;
+    }
+    
+    .imagen-equipo {
+        height: 250px;
+    }
+
+    .caja-texto-mision {
+        padding: 25px;
+        margin-top: 0;
+    }
+
+    .header-nosotros h1 {
+        font-size: 2rem;
+    }
+}

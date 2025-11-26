@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Registro - Mochileros por el mundo</title>
+        
+        <link rel="stylesheet" type="text/css" href="styles/estilos.css">
+        <link rel="stylesheet" type="text/css" href="styles/e_registro.css">
+    </head>  
+
+    <body class="body-mochileros">
+        
+        <div class="layout-global">
+
+            <aside class="zona-publicidad publicidad-izquierda">
+                <div class="titulo-ad">Te recomendamos</div>
+                <a href="#" class="amazon-card">
+                    <div class="img-container"><img src="images/izquierda-arriba.jpg" alt="Botas"></div>
+                    <div class="info-ad">
+                        <p class="titulo-prod">Botas Senderismo</p>
+                        <div class="precio-ad">50,86€</div>
+                        <button class="btn-amazon">Ver en Amazon</button>
+                    </div>
+                </a>
+                <a href="#" class="amazon-card">
+                    <div class="img-container"><img src="images/izquierda-abajo.jpg" alt="Chaqueta"></div>
+                    <div class="info-ad">
+                        <p class="titulo-prod">Chaqueta Térmica</p>
+                        <div class="precio-ad">89,99€</div>
+                        <button class="btn-amazon">Ver en Amazon</button>
+                    </div>
+                </a>
+            </aside>
+
+            <div class="contenedor-principal">
+                
+                <nav class="navbar">
+                    <ul class="menu-header-footer">
+                        <li><a href="home_no_session.html">Inicio</a></li>
+                        <li><a href="packs.html">Packs</a></li>
+                        <li><a href="foro.html">Foro</a></li> 
+                        <li><a href="articulos.html">Artículos</a></li>
+                        <li><a href="faq.html">Preguntas frecuentes</a></li>
+                        <li><a href="nosotros.html">Nosotros</a></li> 
+                    </ul>
+                    <div class="idioma-login">
+                        <select id="selector-idioma" class="selector-idioma">
+                            <option value="es">Español</option>
+                            <option value="en">English</option>
+                        </select>
+                        <a href="login.html">Iniciar Sesión</a>
+                    </div>
+                </nav>
+
+                <header class="header-registro">
+                    <h1>Portal de Registro</h1>
+                </header>
+
+                <main class="main-registro">
+                    <div class="registro-card">
+                        <h2>Registro:</h2>
+                        
+                        <form action="login.html" method="POST" class="formulario-registro">
+                            
+                            <div class="grupo-input">
+                                <label for="nombre">Nombre y Apellido/s</label>
+                                <input type="text" id="nombre" name="nombre" placeholder="Ej: Juan Pérez">
+                            </div>
+
+                            <div class="grupo-input">
+                                <label for="pass1">Contraseña</label>
+                                <input type="password" id="pass1" name="pass1" placeholder="••••••••">
+                            </div>
+
+                            <div class="grupo-input">
+                                <label for="pass2">Repetir contraseña</label>
+                                <input type="password" id="pass2" name="pass2" placeholder="••••••••">
+                            </div>
+
+                            <div class="grupo-input">
+                                <label for="email">Correo electrónico</label>
+                                <input type="email" id="email" name="email" placeholder="juanprz23@gmail.com">
+                            </div>
+
+                            <div class="grupo-input grupo-foto">
+                                <label for="foto">Añadir foto:</label>
+                                <input type="file" id="foto" name="foto" class="input-file">
+                            </div>
+
+                            <div class="grupo-checkbox">
+                                <input type="checkbox" id="recordar_reg" name="recordar_reg">
+                                <label for="recordar_reg">Recordar sesión</label>
+                            </div>
+
+                            <button type="submit" class="btn-registrar-final">Registrar</button>
+
+                        </form>
+                    </div>
+                </main>
+
+                <footer>
+                    <div class="footer-top">
+                        <div class="col-footer">
+                            <h4>Mochileros por el mundo</h4>
+                            <div class="bloque-siguenos">
+                                <h5>SÍGUENOS</h5>
+                                <div class="iconos-sociales">
+                                    <a href="#"><img src="images/instagram_r.png" alt="IG"></a>
+                                    <a href="#"><img src="images/facebook_r.png" alt="FB"></a>
+                                    <a href="#"><img src="images/tiktok_r.png" alt="TK"></a>
+                                    <a href="#"><img src="images/youtube_r.png" alt="YT"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-footer">
+                            <h4>Legal</h4>
+                            <p>Términos y condiciones</p>
+                            <p>Información</p>
+                            <p>Política de privacidad</p>
+                        </div>
+                        <div class="col-footer">
+                            <h4>Ayuda</h4>
+                            <p>Preguntas frecuentes</p>
+                            <p>Problemas con la web</p>
+                            <p>Contacto soporte</p>
+                        </div>
+                        <div class="col-footer">
+                            <h4>Contacto</h4>
+                            <p>Dudas generales</p>
+                            <p>+34 91 123 45 67</p>
+                        </div>
+                    </div>
+                </footer>
+
+            </div>
+
+            <aside class="zona-publicidad publicidad-derecha">
+                <div class="titulo-ad">Top Ventas</div>
+                <a href="#" class="amazon-card">
+                    <div class="img-container"><img src="images/derecha-arriba.jpg" alt="Mochila"></div>
+                    <div class="info-ad">
+                        <p class="titulo-prod">Mochila Táctica</p>
+                        <div class="precio-ad">129,95€</div>
+                        <button class="btn-amazon">Ver en Amazon</button>
+                    </div>
+                </a>
+                <a href="#" class="amazon-card">
+                    <div class="img-container"><img src="images/derecha-abajo.jpg" alt="Tienda"></div>
+                    <div class="info-ad">
+                        <p class="titulo-prod">Tienda Ultraligera</p>
+                        <div class="precio-ad">152,99€</div>
+                        <button class="btn-amazon">Ver en Amazon</button>
+                    </div>
+                </a>
+            </aside>
+
+        </div> 
+        
+        <script type="text/javascript" src="scripts/main.js"></script>
+    </body>
+</html>

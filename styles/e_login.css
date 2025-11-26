@@ -1,0 +1,189 @@
+/* ============================================
+   ESTILOS ESPECÍFICOS PARA LOGIN
+   ============================================ */
+
+/* --- HEADER SIMPLE --- */
+.header-login {
+    background: linear-gradient(135deg, #0077B6 0%, #023E8A 100%);
+    padding: 30px 50px;
+    text-align: center;
+    color: white;
+}
+
+.header-login h1 {
+    font-size: 2rem;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+/* --- CONTENEDOR PRINCIPAL --- */
+.main-login {
+    /* Fondo azul suave con textura, igual que en Nosotros */
+    background-color: #E1F5FE;
+    background-image: radial-gradient(#0077B6 0.5px, transparent 0.5px);
+    background-size: 20px 20px;
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 500px; /* Asegura altura aunque haya poco contenido */
+}
+
+/* --- TARJETA DE LOGIN (La caja central) --- */
+.login-card {
+    /* Gradiente Azul Oscuro Corporativo */
+    background: linear-gradient(180deg, #003049 0%, #023E8A 100%);
+    width: 100%;
+    max-width: 500px;
+    padding: 40px;
+    border-radius: 20px;
+    /* Borde Amarillo, reemplazando el estilo oscuro de la referencia */
+    border: 3px solid #FFB703; 
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+    color: white;
+}
+
+.login-card h2 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+    color: #FFB703; /* Título en amarillo */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+/* --- CAMPOS DEL FORMULARIO --- */
+.grupo-input {
+    margin-bottom: 20px;
+}
+
+.grupo-input label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #E0F7FA;
+}
+
+.grupo-input input {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    background-color: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+    color: #333;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s;
+}
+
+/* Efecto al hacer clic en el input */
+.grupo-input input:focus {
+    outline: none;
+    border-color: #FFB703;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(255, 183, 3, 0.3);
+}
+
+/* --- CHECKBOX RECORDAR SESIÓN --- */
+.grupo-checkbox {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    font-size: 0.9rem;
+    color: #E0F7FA;
+    cursor: pointer;
+}
+
+.grupo-checkbox input {
+    margin-right: 10px;
+    width: 18px;
+    height: 18px;
+    accent-color: #FFB703; /* Color del tick */
+    cursor: pointer;
+}
+
+.grupo-checkbox label {
+    cursor: pointer;
+}
+
+/* --- BOTONES --- */
+.botones-login {
+    display: flex;
+    gap: 15px;
+    justify-content: space-between;
+}
+
+/* --- BOTONES --- */
+.botones-login {
+    display: flex;
+    gap: 15px;
+    justify-content: space-between;
+}
+
+/* APLICAMOS ESTILOS A BOTONES Y ENLACES POR IGUAL */
+.botones-login button, .botones-login a {
+    flex: 1; /* Ocupan el mismo ancho */
+    padding: 12px;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-transform: uppercase;
+    
+    /* Propiedades nuevas para que el enlace <a> se comporte como botón */
+    text-decoration: none;  /* Quita el subrayado */
+    text-align: center;     /* Centra el texto */
+    display: inline-block;  
+    box-sizing: border-box; /* Para que el padding no afecte al ancho */
+}
+
+/* Botón Registrar (Estilo secundario) */
+.btn-registrar {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+}
+
+
+/* Botón Registrar (Estilo secundario: Transparente con borde) */
+.btn-registrar {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+}
+
+.btn-registrar:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+/* Botón Iniciar Sesión (Estilo principal: Amarillo) */
+.btn-entrar {
+    background-color: #FFB703;
+    border: 2px solid #FFB703;
+    color: #003049;
+}
+
+.btn-entrar:hover {
+    background-color: #fb8500;
+    border-color: #fb8500;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 480px) {
+    .login-card {
+        padding: 25px;
+    }
+    
+    .botones-login {
+        flex-direction: column;
+    }
+    
+    .header-login h1 {
+        font-size: 1.5rem;
+    }
+}
