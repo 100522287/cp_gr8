@@ -231,3 +231,30 @@
         padding-top: 10px;
     }
 }
+
+/* --- BOTÓN RESPONDER (DENTRO DEL TEMA) --- */
+.btn-responder {
+    background-color: white;
+    color: #0077B6;
+    border: 2px solid #0077B6;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    display: inline-block;
+}
+
+.btn-responder:hover {
+    background-color: #0077B6;
+    color: white;
+}
+
+.zona-respuesta {
+    text-align: right; /* Para que el botón salga a la derecha */
+    margin-top: 10px;
+    border-top: 1px dashed #eee;
+    padding-top: 15px;
+}

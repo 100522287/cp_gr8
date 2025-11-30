@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
     cargarForo();
+    configurarBotonesAccion();
 });
 
 function cargarForo() {
     const contenedor = document.getElementById('lista-temas-dinamica');
     
-    // Verificamos si existe el contenedor
     if (!contenedor) return;
 
     // Verificamos si los datos incrustados existen
@@ -16,13 +16,11 @@ function cargarForo() {
     }
 
     try {
-        // YA NO HACEMOS FETCH, USAMOS LA VARIABLE GLOBAL
         const temas = window.datosForo;
-
         let htmlContent = '';
         
         temas.forEach(tema => {
-            // 1. Preparamos el HTML de las respuestas
+            // 1. Preparamos el HTML de las respuestas existentes
             let htmlRespuestas = '';
             
             if (tema.mensajes && tema.mensajes.length > 0) {
@@ -64,6 +62,12 @@ function cargarForo() {
 
                     <div class="contenedor-respuestas">
                         ${htmlRespuestas}
+                        
+                        <div class="zona-respuesta">
+                            <button class="btn-responder" onclick="verificarSesion(event)">
+                                ✍️ Escribir una respuesta
+                            </button>
+                        </div>
                     </div>
 
                 </div>
@@ -72,7 +76,7 @@ function cargarForo() {
 
         contenedor.innerHTML = htmlContent;
 
-        // 3. ACTIVAR EL CLICK (ACORDEÓN)
+        // 3. ACTIVAR EL ACORDEÓN
         const items = document.querySelectorAll('.tema-item');
         
         items.forEach(item => {
@@ -86,5 +90,31 @@ function cargarForo() {
     } catch (error) {
         console.error("Error procesando foro:", error);
         contenedor.innerHTML = "<p>Error al mostrar los temas.</p>";
+    }
+}
+
+// --- FUNCIÓN DE SEGURIDAD (Simulada) ---
+function configurarBotonesAccion() {
+    // Buscamos el botón de "+ Nuevo Tema" que está en el HTML fijo
+    const btnNuevoTema = document.querySelector('.btn-nuevo-tema');
+    
+    if (btnNuevoTema) {
+        btnNuevoTema.addEventListener('click', (e) => {
+            e.preventDefault(); // Evita que el enlace haga nada por defecto
+            verificarSesion(e);
+        });
+    }
+}
+
+// Esta función se llama tanto desde "Nuevo Tema" como desde "Responder"
+function verificarSesion(event) {
+    // Evitamos que el click se propague y cierre el acordeón (stop propagation)
+    if(event) event.stopPropagation();
+
+    // Mensaje al usuario
+    const confirmar = confirm("Para participar en el foro necesitas iniciar sesión. ¿Quieres ir al login?");
+    
+    if (confirmar) {
+        window.location.href = 'login.html';
     }
 }
