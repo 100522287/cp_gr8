@@ -9,7 +9,7 @@ function carrusel() {
     const botonIzq = document.getElementById("boton_izq_articulos");
     const botonDer = document.getElementById("boton_der_articulos");
 
-    // Si no existen los elementos (ej: estamos en la página de Packs o FAQ), salimos sin error
+    // Si no existen los elementos (ej: estamos en la página de Packs o FAQ), salimos
     if (!track || !botonIzq || !botonDer) return;
 
     console.log("Iniciando carrusel de home...");
@@ -28,7 +28,7 @@ function carrusel() {
         let htmlContent = "";
         articulosCarrusel.forEach(art => {
             htmlContent += `
-                <a href="articulo_detalle.html?id=${art.id}" style="text-decoration:none; display:block; height:100%;">
+                <a href="articulo_detalle.html?id=${art.id}&from=home" style="text-decoration:none; display:block; height:100%;">
                     <div class="tarjeta-articulo">
                         <div class="articulo-img">
                             <img src="${art.imagen}" alt="${art.titulo}">
@@ -51,9 +51,10 @@ function carrusel() {
 
     // Funciones de movimiento (Scroll)
     function obtenerAncho() {
-        const tarjeta = track.querySelector('a'); // Ahora la tarjeta está dentro de un <a>
-        // Ancho del enlace (que contiene la tarjeta) + el hueco (gap) de 30px
-        return tarjeta ? tarjeta.offsetWidth + 30 : 300; 
+        // Buscamos el elemento 'a' que envuelve la tarjeta
+        const enlace = track.querySelector('a'); 
+        // Ancho del enlace + el hueco (gap) de 30px
+        return enlace ? enlace.offsetWidth + 30 : 300; 
     }
 
     botonDer.addEventListener("click", () => {
