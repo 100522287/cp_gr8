@@ -4,10 +4,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Preguntas Frecuentes - Mochileros por el mundo</title>
+    <title>Finalizar Compra - Mochileros por el mundo</title>
 
     <link rel="stylesheet" type="text/css" href="styles/estilos.css">
-    <link rel="stylesheet" type="text/css" href="styles/e_faq.css">
+    <link rel="stylesheet" type="text/css" href="styles/e_compra.css">
 </head>
 
 <body class="body-mochileros">
@@ -16,23 +16,21 @@
 
         <aside class="zona-publicidad publicidad-izquierda">
             <div class="titulo-ad">Te recomendamos</div>
-
             <a href="https://www.amazon.es/NORTIV8-Senderismo-Impermeables-Zapatillas-Antideslizante/dp/B0BFPTSSQW/"
                 target="_blank" class="amazon-card">
                 <div class="img-container"><img src="images/izquierda-arriba.jpg" alt="Botas"></div>
                 <div class="info-ad">
                     <p class="titulo-prod">Botas Senderismo</p>
-                    <div class="precio-ad">50,86€ <i class="fab fa-amazon"></i></div>
+                    <div class="precio-ad">50,86€</div>
                     <button class="btn-amazon">Ver en Amazon</button>
                 </div>
             </a>
-
             <a href="https://www.amazon.es/Columbia-Waterproof-Impermeables-Trekking-Senderismo/dp/B0CLW4PW32/"
                 target="_blank" class="amazon-card">
                 <div class="img-container"><img src="images/izquierda-abajo.jpg" alt="Chaqueta"></div>
                 <div class="info-ad">
-                    <p class="titulo-prod">Botas de Montaña Piel - Pro</p>
-                    <div class="precio-ad">63,00€ <i class="fab fa-amazon"></i></div>
+                    <p class="titulo-prod">Chaqueta Térmica</p>
+                    <div class="precio-ad">89,99€</div>
                     <button class="btn-amazon">Ver en Amazon</button>
                 </div>
             </a>
@@ -58,13 +56,94 @@
                 </div>
             </nav>
 
-            <header class="header-faq">
-                <h1>Preguntas Frecuentes</h1>
-                <p>Resolvemos todas tus dudas antes de viajar.</p>
+            <header class="header-compra">
+                <h1>Portal de Compra</h1>
+                <p>Estás a un paso de tu próxima gran aventura</p>
             </header>
 
-            <main style="background: white;">
-                <div class="contenedor-faq-principal" id="contenedor-faq-dinamico">
+            <main class="main-compra">
+                <div class="contenedor-compra-split">
+
+                    <div class="columna-info-pack">
+                        <div class="img-pack-header">
+                            <img id="img-pack" src="" alt="Imagen del destino">
+                            <div class="etiqueta-precio-grande" id="precio-pack">0€</div>
+                        </div>
+
+                        <div class="contenido-detalle">
+                            <h2 id="titulo-pack">Cargando pack...</h2>
+                            <p class="descripcion-extendida" id="desc-pack">
+                                Selecciona un pack desde la página anterior.
+                            </p>
+
+                            <div class="detalles-tecnicos">
+                                <h3>Lo que incluye tu experiencia:</h3>
+                                <ul id="lista-detalles">
+                                </ul>
+                            </div>
+
+                            <div class="nota-importante">
+                                <strong><i class="fas fa-info-circle"></i> Nota:</strong>
+                                <span id="nota-pack">Los vuelos están sujetos a disponibilidad hasta el momento del
+                                    pago.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="columna-formulario">
+                        <div class="columna-formulario">
+                            <div class="card-formulario">
+                                <h3>Formulario de compra</h3>
+
+                                <form action="confirmacion.html" class="form-pago"
+                                    onsubmit="alert('¡Compra simulada con éxito! Gracias por viajar con nosotros.'); return false;">
+
+                                    <div class="grupo-input-dark">
+                                        <label>Nombre y Apellido/s</label>
+                                        <input type="text" placeholder="Ej: Juan Pérez" required>
+                                    </div>
+
+                                    <div class="grupo-input-dark">
+                                        <label>Forma de pago</label>
+                                        <select class="select-pago">
+                                            <option value="visa">Tarjeta VISA</option>
+                                            <option value="mastercard">Mastercard</option>
+                                            <option value="paypal">PayPal</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="grupo-input-dark">
+                                        <label>Número de tarjeta</label>
+                                        <input type="text" placeholder="0000 0000 0000 0000" maxlength="19" required>
+                                    </div>
+
+                                    <div class="fila-doble">
+                                        <div class="grupo-input-dark">
+                                            <label>Caducidad</label>
+                                            <input type="month" required>
+                                        </div>
+                                        <div class="grupo-input-dark">
+                                            <label>CVV</label>
+                                            <input type="text" placeholder="123" maxlength="3" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="grupo-input-dark">
+                                        <label>Correo electrónico</label>
+                                        <input type="email" placeholder="juanprz23@gmail.com" required>
+                                    </div>
+
+                                    <div class="grupo-checkbox-dark">
+                                        <input type="checkbox" id="terms" required>
+                                        <label for="terms">Acepto Términos y Condiciones</label>
+                                    </div>
+
+                                    <button type="submit" class="btn-comprar-final">Confirmar Compra</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </main>
 
@@ -79,7 +158,7 @@
                                         src="images/instagram_r.png" alt="IG"></a>
                                 <a href="https://www.facebook.com/" target="_blank" title="Facebook"><img
                                         src="images/facebook_r.png" alt="FB"></a>
-                                <a href="https://www.tiktok.com/es" target="_blank" title="TikTok"><img
+                                <a href="https://www.tiktok.com/" target="_blank" title="TikTok"><img
                                         src="images/tiktok_r.png" alt="TK"></a>
                                 <a href="https://www.youtube.com/" target="_blank" title="YouTube"><img
                                         src="images/youtube_r.png" alt="YT"></a>
@@ -119,7 +198,6 @@
 
         <aside class="zona-publicidad publicidad-derecha">
             <div class="titulo-ad">Top Ventas</div>
-
             <a href="https://www.amazon.es/PICSIL-Impermeable-Capacidad-Crosstraining-Senderismo/dp/B0DV9GKVM4"
                 target="_blank" class="amazon-card">
                 <div class="img-container"><img src="images/derecha-arriba.jpg" alt="Mochila Táctica"></div>
@@ -129,7 +207,6 @@
                     <button class="btn-amazon">Ver en Amazon</button>
                 </div>
             </a>
-
             <a href="https://www.amazon.es/Night-Cat-Tienda-Persona-Ultraligero/dp/B0DYD4D2XB" target="_blank"
                 class="amazon-card">
                 <div class="img-container"><img src="images/derecha-abajo.jpg" alt="Tienda Campaña"></div>
@@ -143,73 +220,8 @@
 
     </div>
 
-    <script>
-        window.datosFaq = [
-            {
-                "id": 1,
-                "pregunta": "¿Cómo puedo reservar un pack de viaje?",
-                "respuesta": "Puedes reservar directamente desde la página de 'Packs'. Selecciona el viaje que te gusta, elige tus fechas y sigue los pasos de pago seguro."
-            },
-            {
-                "id": 2,
-                "pregunta": "¿Es seguro el pago con tarjeta?",
-                "respuesta": "Totalmente. Utilizamos pasarelas de pago encriptadas (SSL) y aceptamos Visa, Mastercard y PayPal para garantizar tu seguridad."
-            },
-            {
-                "id": 3,
-                "pregunta": "¿Puedo cancelar mi reserva?",
-                "respuesta": "Sí. Puedes cancelar sin coste hasta 48 horas antes de la salida del viaje. Pasado ese tiempo, se aplicará una penalización del 20%."
-            },
-            {
-                "id": 4,
-                "pregunta": "¿Incluyen los vuelos?",
-                "respuesta": "Depende del pack. La mayoría de nuestros packs 'Aventura' incluyen vuelos internacionales, pero los packs 'Escapada' suelen incluir solo hotel y actividades. Revisa el detalle de cada oferta."
-            },
-            {
-                "id": 5,
-                "pregunta": "¿Viajáis con grupos grandes?",
-                "respuesta": "Intentamos mantener la esencia mochilera. Nuestros grupos son reducidos, normalmente entre 8 y 12 personas, para asegurar una experiencia auténtica y flexible."
-            },
-            {
-                "id": 6,
-                "pregunta": "¿Necesito visado para los viajes?",
-                "respuesta": "Para destinos fuera de la Unión Europea, es posible que necesites visado. Te enviaremos toda la información y ayuda necesaria para tramitarlo al confirmar tu reserva."
-            },
-            {
-                "id": 7,
-                "pregunta": "¿El seguro de viaje está incluido?",
-                "respuesta": "Todos nuestros packs incluyen un seguro básico de asistencia sanitaria. Sin embargo, recomendamos encarecidamente contratar el seguro de cancelación opcional durante el proceso de reserva."
-            },
-            {
-                "id": 8,
-                "pregunta": "¿Puedo viajar solo/a?",
-                "respuesta": "¡Por supuesto! De hecho, el 70% de nuestros viajeros se apuntan solos. Te asignaremos compañero/a de habitación del mismo género para que no pagues suplemento, o puedes elegir habitación individual si lo prefieres."
-            },
-            {
-                "id": 9,
-                "pregunta": "¿Qué tipo de equipaje debo llevar?",
-                "respuesta": "Recomendamos encarecidamente viajar con mochila, no con maleta rígida, ya que nos moveremos en transporte local y a veces por terrenos irregulares. En la ficha de cada viaje tienes una lista recomendada."
-            },
-            {
-                "id": 10,
-                "pregunta": "¿Tengo que vacunarme?",
-                "respuesta": "Depende del destino. Siempre recomendamos visitar tu Centro de Vacunación Internacional más cercano al menos un mes antes del viaje para recibir asesoramiento médico oficial."
-            },
-            {
-                "id": 11,
-                "pregunta": "¿Hay opciones para vegetarianos o alérgicos?",
-                "respuesta": "Sí. Al hacer tu reserva podrás indicar tus restricciones alimentarias. Nos encargaremos de avisar a los alojamientos y restaurantes previstos para que tengas opciones seguras."
-            },
-            {
-                "id": 12,
-                "pregunta": "¿En qué idioma son las visitas?",
-                "respuesta": "Nuestros coordinadores hablan español. Los guías locales suelen hablar inglés o español, dependiendo del destino remoto, pero el coordinador siempre estará ahí para traducir."
-            }
-        ];
-    </script>
-
     <script type="text/javascript" src="scripts/main.js"></script>
-    <script type="text/javascript" src="scripts/faq.js"></script>
+    <script type="text/javascript" src="scripts/compra.js"></script>
 </body>
 
 </html>

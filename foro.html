@@ -1,378 +1,79 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="utf-8"> 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Foro - Mochileros por el mundo</title>
-        
-        <link rel="stylesheet" type="text/css" href="styles/estilos.css">
-        <link rel="stylesheet" type="text/css" href="styles/e_foro.css">
-    </head>  
 
-    <body class="body-mochileros">
-        
-        <div class="layout-global">
-            <aside class="zona-publicidad publicidad-izquierda">
-                <div class="titulo-ad">Te recomendamos</div>
-                
-                <a href="https://www.amazon.es/NORTIV8-Senderismo-Impermeables-Zapatillas-Antideslizante/dp/B0BFPTSSQW/" target="_blank" class="amazon-card">
-                    <div class="img-container"><img src="images/izquierda-arriba.jpg" alt="Botas"></div>
-                    <div class="info-ad">
-                        <p class="titulo-prod">Botas Senderismo</p>
-                        <div class="precio-ad">50,86€ <i class="fab fa-amazon"></i></div>
-                        <button class="btn-amazon">Ver en Amazon</button>
+<head>
+    <meta charset="utf-8">
+    <title>Foro - Mochileros por el mundo</title>
+    <link rel="stylesheet" type="text/css" href="styles/estilos.css">
+    <link rel="stylesheet" type="text/css" href="styles/e_foro.css">
+</head>
+
+<body class="body-mochileros">
+    <div class="layout-global">
+        <aside class="zona-publicidad publicidad-izquierda">
+            <div class="titulo-ad">Te recomendamos</div>
+            <a href="#" class="amazon-card">
+                <div class="img-container"><img src="images/izquierda-arriba.jpg"></div>
+                <div class="info-ad">
+                    <p class="titulo-prod">Botas</p>
+                    <div class="precio-ad">50€</div><button class="btn-amazon">Ver</button>
+                </div>
+            </a>
+        </aside>
+
+        <div class="contenedor-principal">
+            <nav class="navbar">
+                <ul class="menu-header-footer">
+                    <li><a href="home_no_session.html">Inicio</a></li>
+                    <li><a href="packs.html">Packs</a></li>
+                    <li><a href="foro.html" class="active">Foro</a></li>
+                    <li><a href="articulos.html">Artículos</a></li>
+                    <li><a href="faq.html">Preguntas frecuentes</a></li>
+                    <li><a href="nosotros.html">Nosotros</a></li>
+                </ul>
+                <div class="idioma-login" id="panel-usuario-nav">
+                    <select id="selector-idioma" class="selector-idioma">
+                        <option value="es">Español</option>
+                        <option value="en">English</option>
+                    </select>
+                    <a href="login.html">Iniciar Sesión</a>
+                </div>
+            </nav>
+
+            <header class="header-foro">
+                <h1>Foro de Viajeros</h1>
+                <p>Comparte experiencias, busca compañeros y resuelve dudas.</p>
+            </header>
+
+            <main class="contenedor-foro-lista">
+                <div class="barra-acciones">
+                    <h2 style="margin:0; color:#0077B6;">Últimos Temas</h2>
+                    <button id="btn-crear-tema" class="btn-nuevo-tema">+ Nuevo Tema</button>
+                </div>
+                <div id="lista-temas-dinamica"></div>
+            </main>
+
+            <footer>
+                <div class="footer-top">
+                    <div class="col-footer">
+                        <h4>Mochileros</h4>
                     </div>
-                </a>
+                </div>
+            </footer>
+        </div>
+        <aside class="zona-publicidad publicidad-derecha">
+            <div class="titulo-ad">Top Ventas</div>
+            <a href="#" class="amazon-card">
+                <div class="img-container"><img src="images/derecha-arriba.jpg"></div>
+                <div class="info-ad">
+                    <p class="titulo-prod">Mochila</p>
+                    <div class="precio-ad">129€</div><button class="btn-amazon">Ver</button>
+                </div>
+            </a>
+        </aside>
+    </div>
+    <script type="text/javascript" src="scripts/main.js"></script>
+    <script type="text/javascript" src="scripts/foro.js"></script>
+</body>
 
-                <a href="https://www.amazon.es/Columbia-Waterproof-Impermeables-Trekking-Senderismo/dp/B0CLW4PW32/" target="_blank" class="amazon-card">
-                    <div class="img-container"><img src="images/izquierda-abajo.jpg" alt="Chaqueta"></div>
-                    <div class="info-ad">
-                        <p class="titulo-prod">Botas de Montaña Piel - Pro</p>
-                        <div class="precio-ad">63,00€ <i class="fab fa-amazon"></i></div>
-                        <button class="btn-amazon">Ver en Amazon</button>
-                    </div>
-                </a>
-            </aside>
-
-            <div class="contenedor-principal">
-                
-                <nav class="navbar">
-                    <ul class="menu-header-footer">
-                        <li><a href="home_no_session.html">Inicio</a></li>
-                        <li><a href="packs.html">Packs</a></li>
-                        <li><a href="foro.html" class="active">Foro</a></li>
-                        <li><a href="articulos.html">Artículos</a></li>
-                        <li><a href="faq.html">Preguntas frecuentes</a></li>
-                        <li><a href="nosotros.html">Nosotros</a></li> 
-                    </ul>
-                    <div class="idioma-login">
-                        <select id="selector-idioma" class="selector-idioma">
-                            <option value="es">Español</option>
-                            <option value="en">English</option>
-                        </select>
-                        <a href="login.html">Iniciar Sesión</a>
-                    </div>
-                </nav>
-
-                <header class="header-foro">
-                    <h1>Foro de Viajeros</h1>
-                    <p>Comparte experiencias, busca compañeros y resuelve dudas.</p>
-                </header>
-
-                <main class="contenedor-foro-lista">
-                    <div class="barra-acciones">
-                        <h2 style="margin:0; color:#0077B6;">Últimos Temas</h2>
-                        <a href="#" class="btn-nuevo-tema">+ Nuevo Tema</a>
-                    </div>
-
-                    <div id="lista-temas-dinamica"></div>
-                </main>
-
-                <footer>
-                    <div class="footer-top">
-                        <div class="col-footer">
-                            <h4 data-lang="footer_title">Mochileros por el mundo</h4>
-                            <div class="bloque-siguenos">
-                                <h5 data-lang="follow_us">SÍGUENOS</h5>
-                                <div class="iconos-sociales">
-                                    <a href="https://www.instagram.com/" target="_blank" title="Instagram"><img src="images/instagram_r.png" alt="IG"></a>
-                                    <a href="https://www.facebook.com/" target="_blank" title="Facebook"><img src="images/facebook_r.png" alt="FB"></a>
-                                    <a href="https://www.tiktok.com/es" target="_blank" title="TikTok"><img src="images/tiktok_r.png" alt="TK"></a>
-                                    <a href="https://www.youtube.com/" target="_blank" title="YouTube"><img src="images/youtube_r.png" alt="YT"></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-footer">
-                            <h4 data-lang="legal">Legal</h4>
-                            <p data-lang="terms">Términos y condiciones</p>
-                            <p data-lang="info">Información</p>
-                            <p data-lang="page">Política de privacidad</p>
-                        </div>
-                        <div class="col-footer">
-                            <h4 data-lang="help">Ayuda</h4>
-                            <p data-lang="faq_short">Preguntas frecuentes</p>
-                            <p data-lang="problems">Problemas</p>
-                            <p data-lang="incidents">Incidencias web</p>
-                        </div>
-                        <div class="col-footer">
-                            <h4 data-lang="contact">Contacto</h4>
-                            <p data-lang="doubts">Dudas</p>
-                            <p data-lang="phone">Número telefónico</p>
-                        </div>
-                    </div>
-
-                    <div class="footer-bottom-pago">
-                        <h5 data-lang="secure_pay">PAGO SEGURO</h5>
-                        <div class="iconos-pago">
-                            <div class="tarjeta-icono"><img src="images/visa.png" alt="Visa"></div>
-                            <div class="tarjeta-icono"><img src="images/matercard.png" alt="Mastercard"></div>
-                            <div class="tarjeta-icono"><img src="images/paypal.png" alt="Paypal"></div>
-                        </div>
-                    </div>
-                </footer>
-            </div>
-
-            <aside class="zona-publicidad publicidad-derecha">
-                <div class="titulo-ad">Top Ventas</div>
-                
-                <a href="https://www.amazon.es/PICSIL-Impermeable-Capacidad-Crosstraining-Senderismo/dp/B0DV9GKVM4" target="_blank" class="amazon-card">
-                    <div class="img-container"><img src="images/derecha-arriba.jpg" alt="Mochila Táctica"></div>
-                    <div class="info-ad">
-                        <p class="titulo-prod">Mochila Táctica 40L</p>
-                        <div class="precio-ad">129,95€ <i class="fab fa-amazon"></i></div>
-                        <button class="btn-amazon">Ver en Amazon</button>
-                    </div>
-                </a>
-
-                <a href="https://www.amazon.es/Night-Cat-Tienda-Persona-Ultraligero/dp/B0DYD4D2XB" target="_blank" class="amazon-card">
-                    <div class="img-container"><img src="images/derecha-abajo.jpg" alt="Tienda Campaña"></div>
-                    <div class="info-ad">
-                        <p class="titulo-prod">Tienda Campaña Ultraligera</p>
-                        <div class="precio-ad">152,99€ <i class="fab fa-amazon"></i></div>
-                        <button class="btn-amazon">Ver en Amazon</button>
-                    </div>
-                </a>
-            </aside>
-        </div> 
-        
-        <script>
-            window.datosForo = [
-                {
-                    "id": 1,
-                    "titulo": "¿Es seguro viajar a Egipto por libre en 2025?",
-                    "autor": "ViajeroCurioso",
-                    "fecha": "Hace 20 min",
-                    "respuestas": 2,
-                    "vistas": 342,
-                    "categoria": "África",
-                    "mensajes": [
-                        { "usuario": "Mochila_Trotamundos", "texto": "Yo acabo de volver y es totalmente seguro, aunque recomiendo Uber para moverte por El Cairo." },
-                        { "usuario": "Ana_Guides", "texto": "Coincido. Solo ten cuidado con los vendedores en las pirámides, son muy insistentes. Di 'La Shukran' (No gracias) y sigue andando." }
-                    ]
-                },
-                {
-                    "id": 2,
-                    "titulo": "Busco compañeros para ruta por la Patagonia en Diciembre",
-                    "autor": "Marta_Trails",
-                    "fecha": "Hace 2 horas",
-                    "respuestas": 1,
-                    "vistas": 120,
-                    "categoria": "Compañeros",
-                    "mensajes": [
-                        { "usuario": "David_Hiker", "texto": "¡Hola Marta! Yo estaré por allí del 10 al 25. ¿Qué ruta tienes pensada? Me interesa la W en Torres del Paine." }
-                    ]
-                },
-                {
-                    "id": 3,
-                    "titulo": "Consejos para mochila de 40L (sin facturar en Ryanair)",
-                    "autor": "LowCostKing",
-                    "fecha": "Hace 5 horas",
-                    "respuestas": 3,
-                    "vistas": 1500,
-                    "categoria": "Equipaje",
-                    "mensajes": [
-                        { "usuario": "PackLight", "texto": "La clave son los cubos de compresión. Te cabrá el doble de ropa." },
-                        { "usuario": "ViajeroCurioso", "texto": "Yo uso la Osprey Farpoint 40 y nunca he tenido problemas en cabina, entra justa pero entra." },
-                        { "usuario": "Sara_Fly", "texto": "Ojo con los líquidos, últimamente están muy estrictos en Barajas. Todo en bolsa transparente de 1L." }
-                    ]
-                },
-                {
-                    "id": 4,
-                    "titulo": "Mi experiencia con el visado de Vietnam online (E-Visa)",
-                    "autor": "AnaTrotamundos",
-                    "fecha": "Ayer",
-                    "respuestas": 2,
-                    "vistas": 89,
-                    "categoria": "Visados",
-                    "mensajes": [
-                        { "usuario": "VietnamFan", "texto": "A mí me tardó 3 días laborables exactos. Cuidado con poner bien el nombre completo o te la deniegan." },
-                        { "usuario": "Carlos_Wanderlust", "texto": "Recordad imprimirla en papel, a veces en la frontera no aceptan enseñarla en el móvil." }
-                    ]
-                },
-                {
-                    "id": 5,
-                    "titulo": "Presupuesto real para 15 días en Japón",
-                    "autor": "OtakuViajero",
-                    "fecha": "Ayer",
-                    "respuestas": 2,
-                    "vistas": 890,
-                    "categoria": "Asia",
-                    "mensajes": [
-                        { "usuario": "JapanLover", "texto": "Calcula unos 2000€ con vuelos si vas a hostels y comes en conbinis (7-Eleven, Lawson...)." },
-                        { "usuario": "SushiMaster", "texto": "El JR Pass ha subido mucho de precio este año, usa la calculadora de Hyperdia para ver si te compensa o mejor comprar billetes sueltos." }
-                    ]
-                },
-                {
-                    "id": 6,
-                    "titulo": "Recomendación de seguro médico con deportes de riesgo",
-                    "autor": "Climber88",
-                    "fecha": "Hace 2 días",
-                    "respuestas": 1,
-                    "vistas": 405,
-                    "categoria": "Seguros",
-                    "mensajes": [
-                        { "usuario": "SafetyFirst", "texto": "IATI Mochilero te cubre trekking hasta 5400 metros y rescate en helicóptero. Es el que yo uso para Nepal." }
-                    ]
-                },
-                {
-                    "id": 7,
-                    "titulo": "Primera vez viajando sola a la India: Consejos de seguridad",
-                    "autor": "LauraSoloTravel",
-                    "fecha": "Hace 2 días",
-                    "respuestas": 2,
-                    "vistas": 1200,
-                    "categoria": "Viajar Sola",
-                    "mensajes": [
-                        { "usuario": "IndiaExpert", "texto": "Viste de forma conservadora (hombros y rodillas cubiertos) y evita salir sola muy tarde por zonas no turísticas." },
-                        { "usuario": "MariaViajera", "texto": "Compra una tarjeta SIM local nada más llegar al aeropuerto, es vital tener internet para pedir Uber/Ola y ver mapas." }
-                    ]
-                },
-                {
-                    "id": 8,
-                    "titulo": "¿Tarjeta Revolut o Wise para pagar en el extranjero?",
-                    "autor": "EconomistaNómada",
-                    "fecha": "Hace 3 días",
-                    "respuestas": 3,
-                    "vistas": 2300,
-                    "categoria": "Dinero",
-                    "mensajes": [
-                        { "usuario": "FinanzasViajeras", "texto": "Yo llevo las dos por si acaso una falla. Revolut para pagar con tarjeta y Wise para transferencias grandes." },
-                        { "usuario": "N26Fan", "texto": "No olvidéis N26, a mí en Europa me funciona mejor que Revolut." },
-                        { "usuario": "EconomistaNómada", "texto": "Gracias! Me haré la Revolut estándar para empezar." }
-                    ]
-                },
-                {
-                    "id": 9,
-                    "titulo": "Ruta por las islas de Tailandia: ¿Krabi o Koh Samui?",
-                    "autor": "BeachLover",
-                    "fecha": "Hace 4 días",
-                    "respuestas": 2,
-                    "vistas": 650,
-                    "categoria": "Asia",
-                    "mensajes": [
-                        { "usuario": "ThaiAddict", "texto": "Depende de la época. En verano europeo llueve menos en el Golfo (Samui/Tao). En invierno mejor Krabi/Phuket." },
-                        { "usuario": "DiverBlue", "texto": "Si te gusta bucear, vete directo a Koh Tao (cerca de Samui)." }
-                    ]
-                },
-                {
-                    "id": 10,
-                    "titulo": "Mejores ciudades para trabajar en remoto en Europa",
-                    "autor": "LaptopLifestyle",
-                    "fecha": "Hace 1 semana",
-                    "respuestas": 2,
-                    "vistas": 980,
-                    "categoria": "Nómadas Digitales",
-                    "mensajes": [
-                        { "usuario": "DigitalNomad_ES", "texto": "Lisboa está genial pero se ha puesto carísima. Prueba Las Palmas de Gran Canaria, hay muchísima comunidad." },
-                        { "usuario": "CoderTravel", "texto": "Bansko en Bulgaria es muy barato y está lleno de coworkings." }
-                    ]
-                },
-                {
-                    "id": 11,
-                    "titulo": "¡Ayuda! Me han perdido la maleta en Barajas",
-                    "autor": "Desesperado99",
-                    "fecha": "Hace 1 semana",
-                    "respuestas": 1,
-                    "vistas": 210,
-                    "categoria": "Problemas",
-                    "mensajes": [
-                        { "usuario": "AeroHelp", "texto": "Tienes que ir al mostrador de la aerolínea ANTES de salir de la zona de equipajes y pedir el PIR (Parte de Irregularidad). Sin eso no podrás reclamar." }
-                    ]
-                },
-                {
-                    "id": 12,
-                    "titulo": "¿Alguien ha hecho el Transiberiano recientemente?",
-                    "autor": "TrenesYMas",
-                    "fecha": "Hace 2 semanas",
-                    "respuestas": 1,
-                    "vistas": 150,
-                    "categoria": "Europa",
-                    "mensajes": [
-                        { "usuario": "RusExpert", "texto": "Ahora mismo está muy complicado por la situación política y los visados. Mejor mira el Interrail por los Balcanes si quieres aventura en tren." }
-                    ]
-                },
-                {
-                    "id": 13,
-                    "titulo": "Guía definitiva para comprar entradas a Machu Picchu",
-                    "autor": "IncaFan",
-                    "fecha": "Hace 2 semanas",
-                    "respuestas": 2,
-                    "vistas": 3300,
-                    "categoria": "América",
-                    "mensajes": [
-                        { "usuario": "PerúLover", "texto": "Compradlas con al menos 3 meses de antelación en la web oficial del gobierno. Se agotan volando." },
-                        { "usuario": "ClimberPerú", "texto": "Y si queréis subir al Huayna Picchu, 5 meses antes mínimo." }
-                    ]
-                },
-                {
-                    "id": 14,
-                    "titulo": "Cuidado con la estafa del taxi en Estambul",
-                    "autor": "AlertasViajeras",
-                    "fecha": "Hace 3 semanas",
-                    "respuestas": 2,
-                    "vistas": 5600,
-                    "categoria": "Seguridad",
-                    "mensajes": [
-                        { "usuario": "TurquiaFan", "texto": "Totalmente. A mí me intentaron cambiar los billetes diciendo que les di uno falso. Usad siempre Uber o BiTaksi." },
-                        { "usuario": "IstanbulLocal", "texto": "O el tranvía, que funciona de maravilla y evita el tráfico horrible." }
-                    ]
-                },
-                {
-                    "id": 15,
-                    "titulo": "¿Qué cámara lleváis? ¿Reflex, Mirrorless o solo móvil?",
-                    "autor": "FotoMochila",
-                    "fecha": "Hace 1 mes",
-                    "respuestas": 3,
-                    "vistas": 4100,
-                    "categoria": "Fotografía",
-                    "mensajes": [
-                        { "usuario": "ProShooter", "texto": "Yo me pasé a Mirrorless (Sony Alpha) por el peso. La espalda lo agradece." },
-                        { "usuario": "LightTraveler", "texto": "Sinceramente, con un iPhone 15 Pro o un Pixel 8 vas sobrado para Instagram." },
-                        { "usuario": "FilmIsNotDead", "texto": "Yo sigo llevando mi analógica de 35mm. La magia es distinta." }
-                    ]
-                },
-                {
-                    "id": 16,
-                    "titulo": "Interrail Global Pass: ¿Merece la pena el pase de 1 mes?",
-                    "autor": "EuroTrip2025",
-                    "fecha": "Hace 1 mes",
-                    "respuestas": 2,
-                    "vistas": 2100,
-                    "categoria": "Europa",
-                    "mensajes": [
-                        { "usuario": "TrainMaster", "texto": "Depende de los países. En Francia y España pagas mucho suplemento de reserva. En Alemania y Suiza es una gozada." },
-                        { "usuario": "Backpacker_Joe", "texto": "Yo lo usé el verano pasado y ahorré mucho, sobre todo en los trenes nocturnos." }
-                    ]
-                },
-                {
-                    "id": 17,
-                    "titulo": "Vacunas necesarias para el Amazonas brasileño",
-                    "autor": "JungleBoy",
-                    "fecha": "Hace 1 mes",
-                    "respuestas": 1,
-                    "vistas": 600,
-                    "categoria": "Salud",
-                    "mensajes": [
-                        { "usuario": "DrViajero", "texto": "Fiebre Amarilla es obligatoria (lleva el carnet internacional). También recomendada Tifoidea y Hepatitis A." }
-                    ]
-                },
-                {
-                    "id": 18,
-                    "titulo": "Hostels con mejor ambiente en Budapest",
-                    "autor": "PartyTraveler",
-                    "fecha": "Hace 2 meses",
-                    "respuestas": 2,
-                    "vistas": 3400,
-                    "categoria": "Alojamiento",
-                    "mensajes": [
-                        { "usuario": "BudaParty", "texto": "El Retox si quieres fiesta salvaje. El Vitae si quieres fiesta pero poder dormir algo." },
-                        { "usuario": "ChillGuy", "texto": "Yo prefiero el Wombats, es más limpio y tipo hotel, aunque menos loco." }
-                    ]
-                }
-            ];
-        </script>
-        
-        <script type="text/javascript" src="scripts/main.js"></script>
-        <script type="text/javascript" src="scripts/foro.js"></script>
-    </body>
 </html>

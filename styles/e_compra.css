@@ -1,0 +1,284 @@
+/* ============================================
+   ESTILOS ESPECÍFICOS PARA EL PORTAL DE COMPRA (CORREGIDO)
+   ============================================ */
+
+/* --- HEADER --- */
+.header-compra {
+    background: linear-gradient(135deg, #0077B6 0%, #023E8A 100%);
+    padding: 40px 50px;
+    text-align: center;
+    color: white;
+}
+
+.header-compra h1 {
+    font-size: 2.2rem;
+    margin: 0 0 10px 0;
+    text-transform: uppercase;
+}
+
+/* --- MAIN Y LAYOUT --- */
+.main-compra {
+    background-color: #E1F5FE;
+    background-image: radial-gradient(#0077B6 0.5px, transparent 0.5px);
+    background-size: 20px 20px;
+    padding: 40px;
+}
+
+.contenedor-compra-split {
+    display: flex;
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+    align-items: flex-start;
+}
+
+/* --- COLUMNA IZQUIERDA: INFO PACK --- */
+.columna-info-pack {
+    flex: 1;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    border: 1px solid #E0E0E0;
+}
+
+.img-pack-header {
+    height: 250px;
+    position: relative;
+    overflow: hidden;
+}
+
+.img-pack-header img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.etiqueta-precio-grande {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background-color: #FFB703;
+    /* Amarillo corporativo */
+    color: #003049;
+    font-weight: 800;
+    font-size: 1.4rem;
+    padding: 8px 20px;
+    border-radius: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.contenido-detalle {
+    padding: 30px;
+}
+
+.contenido-detalle h2 {
+    color: #0077B6;
+    margin-top: 0;
+    font-size: 1.8rem;
+    border-bottom: 3px solid #FFB703;
+    /* Línea amarilla */
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+.descripcion-extendida {
+    color: #555;
+    line-height: 1.6;
+    font-size: 1rem;
+    margin-bottom: 25px;
+    background-color: #F4F6F7;
+    padding: 20px;
+    border-left: 4px solid #0077B6;
+    border-radius: 0 8px 8px 0;
+}
+
+.detalles-tecnicos h3 {
+    color: #023E8A;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.detalles-tecnicos ul {
+    list-style: none;
+    padding: 0;
+}
+
+.detalles-tecnicos li {
+    margin-bottom: 12px;
+    padding-left: 25px;
+    position: relative;
+    color: #444;
+}
+
+.detalles-tecnicos li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #FFB703;
+    /* Tick amarillo */
+    font-weight: bold;
+}
+
+.nota-importante {
+    margin-top: 30px;
+    font-size: 0.9rem;
+    color: #003049;
+    background: #FFECB3;
+    /* Fondo amarillo muy suave */
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #FFD54F;
+}
+
+/* --- COLUMNA DERECHA: FORMULARIO (Estilo Tarjeta Azul) --- */
+.columna-formulario {
+    flex: 0 0 400px;
+}
+
+.card-formulario {
+    /* MISMO ESTILO QUE LOGIN/REGISTRO */
+    background: linear-gradient(180deg, #003049 0%, #023E8A 100%);
+    padding: 30px;
+    border-radius: 20px;
+    color: white;
+    border: 3px solid #FFB703;
+    /* Borde amarillo */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+.card-formulario h3 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+    text-align: center;
+    color: #FFB703;
+    text-transform: uppercase;
+}
+
+.grupo-input-dark {
+    margin-bottom: 15px;
+}
+
+.grupo-input-dark label {
+    display: block;
+    font-size: 0.9rem;
+    margin-bottom: 6px;
+    color: #E0F7FA;
+    font-weight: 600;
+}
+
+/* Inputs Blancos/Limpios */
+.grupo-input-dark input,
+.grupo-input-dark select {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    border: 2px solid transparent;
+    padding: 12px;
+    border-radius: 8px;
+    color: #333;
+    font-weight: 500;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s;
+}
+
+.grupo-input-dark input:focus,
+.grupo-input-dark select:focus {
+    outline: none;
+    border-color: #FFB703;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(255, 183, 3, 0.3);
+}
+
+.fila-doble {
+    display: flex;
+    gap: 15px;
+}
+
+.fila-doble .grupo-input-dark {
+    flex: 1;
+}
+
+.grupo-checkbox-dark {
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+    color: #E0F7FA;
+}
+
+.grupo-checkbox-dark input {
+    margin-right: 10px;
+    width: 18px;
+    height: 18px;
+    accent-color: #FFB703;
+    cursor: pointer;
+}
+
+/* Botón Amarillo Corporativo */
+.btn-comprar-final {
+    width: 100%;
+    background-color: #FFB703;
+    color: #003049;
+    /* Texto oscuro para contraste */
+    border: none;
+    padding: 15px;
+    font-size: 1.1rem;
+    font-weight: 800;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
+}
+
+.btn-comprar-final:hover {
+    background-color: #fb8500;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 900px) {
+    .contenedor-compra-split {
+        flex-direction: column;
+    }
+
+    .columna-formulario {
+        flex: auto;
+        width: 100%;
+    }
+
+    .img-pack-header {
+        height: 200px;
+    }
+}
+
+/* --- FECHA CADUCIDAD (SELECTS) --- */
+.fecha-caducidad-selects {
+    display: flex;
+    gap: 10px;
+}
+
+.fecha-caducidad-selects select {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    border: 2px solid transparent;
+    padding: 12px;
+    border-radius: 8px;
+    color: #333;
+    font-weight: 500;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s;
+}
+
+.fecha-caducidad-selects select:focus {
+    outline: none;
+    border-color: #FFB703;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(255, 183, 3, 0.3);
+}
