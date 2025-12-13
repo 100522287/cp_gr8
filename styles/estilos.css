@@ -224,6 +224,29 @@ body.body-mochileros {
     color: white;
 }
 
+/* --- LOGO EN BARRA DE NAVEGACIÓN --- */
+.logo-nav {
+    display: flex;
+    align-items: center;
+    padding: 0 !important; /* Quita padding extra si interfiere */
+}
+
+.logo-nav img {
+    height: 50px; /* Tamaño del logo */
+    width: auto;  /* Mantiene la proporción */
+    vertical-align: middle;
+    transition: transform 0.3s ease;
+}
+
+.logo-nav:hover img {
+    transform: scale(1.1); /* Pequeño efecto zoom al pasar el ratón */
+}
+
+/* Ajuste para eliminar la línea amarilla de subrayado en el logo */
+.menu-header-footer .logo-nav::after {
+    display: none; 
+}
+
 /* --- HERO --- */
 .hero-header {
     height: 450px;

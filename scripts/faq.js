@@ -1,3 +1,67 @@
+// Base de datos de Preguntas Frecuentes (Movido desde el HTML)
+const dbFaq = [
+    {
+        id: 1,
+        pregunta: "¿Cómo puedo reservar un pack de viaje?",
+        respuesta: "Puedes reservar directamente desde la página de 'Packs'. Selecciona el viaje que te gusta, elige tus fechas y sigue los pasos de pago seguro."
+    },
+    {
+        id: 2,
+        pregunta: "¿Es seguro el pago con tarjeta?",
+        respuesta: "Totalmente. Utilizamos pasarelas de pago encriptadas (SSL) y aceptamos Visa, Mastercard y PayPal para garantizar tu seguridad."
+    },
+    {
+        id: 3,
+        pregunta: "¿Puedo cancelar mi reserva?",
+        respuesta: "Sí. Puedes cancelar sin coste hasta 48 horas antes de la salida del viaje. Pasado ese tiempo, se aplicará una penalización del 20%."
+    },
+    {
+        id: 4,
+        pregunta: "¿Incluyen los vuelos?",
+        respuesta: "Depende del pack. La mayoría de nuestros packs 'Aventura' incluyen vuelos internacionales, pero los packs 'Escapada' suelen incluir solo hotel y actividades. Revisa el detalle de cada oferta."
+    },
+    {
+        id: 5,
+        pregunta: "¿Viajáis con grupos grandes?",
+        respuesta: "Intentamos mantener la esencia mochilera. Nuestros grupos son reducidos, normalmente entre 8 y 12 personas, para asegurar una experiencia auténtica y flexible."
+    },
+    {
+        id: 6,
+        pregunta: "¿Necesito visado para los viajes?",
+        respuesta: "Para destinos fuera de la Unión Europea, es posible que necesites visado. Te enviaremos toda la información y ayuda necesaria para tramitarlo al confirmar tu reserva."
+    },
+    {
+        id: 7,
+        pregunta: "¿El seguro de viaje está incluido?",
+        respuesta: "Todos nuestros packs incluyen un seguro básico de asistencia sanitaria. Sin embargo, recomendamos encarecidamente contratar el seguro de cancelación opcional durante el proceso de reserva."
+    },
+    {
+        id: 8,
+        pregunta: "¿Puedo viajar solo/a?",
+        respuesta: "¡Por supuesto! De hecho, el 70% de nuestros viajeros se apuntan solos. Te asignaremos compañero/a de habitación del mismo género para que no pagues suplemento, o puedes elegir habitación individual si lo prefieres."
+    },
+    {
+        id: 9,
+        pregunta: "¿Qué tipo de equipaje debo llevar?",
+        respuesta: "Recomendamos encarecidamente viajar con mochila, no con maleta rígida, ya que nos moveremos en transporte local y a veces por terrenos irregulares. En la ficha de cada viaje tienes una lista recomendada."
+    },
+    {
+        id: 10,
+        pregunta: "¿Tengo que vacunarme?",
+        respuesta: "Depende del destino. Siempre recomendamos visitar tu Centro de Vacunación Internacional más cercano al menos un mes antes del viaje para recibir asesoramiento médico oficial."
+    },
+    {
+        id: 11,
+        pregunta: "¿Hay opciones para vegetarianos o alérgicos?",
+        respuesta: "Sí. Al hacer tu reserva podrás indicar tus restricciones alimentarias. Nos encargaremos de avisar a los alojamientos y restaurantes previstos para que tengas opciones seguras."
+    },
+    {
+        id: 12,
+        pregunta: "¿En qué idioma son las visitas?",
+        respuesta: "Nuestros coordinadores hablan español. Los guías locales suelen hablar inglés o español, dependiendo del destino remoto, pero el coordinador siempre estará ahí para traducir."
+    }
+];
+
 document.addEventListener('DOMContentLoaded', () => {
     cargarFAQ();
 });
@@ -8,20 +72,11 @@ function cargarFAQ() {
     // Verificación de seguridad
     if (!contenedor) return;
 
-    // Verificamos si los datos incrustados existen
-    if (!window.datosFaq) {
-        console.error("No se encontraron los datos de FAQ (window.datosFaq)");
-        contenedor.innerHTML = "<p>Error: No hay datos disponibles.</p>";
-        return;
-    }
-
     try {
-        // USAMOS LA VARIABLE GLOBAL DIRECTAMENTE
-        const preguntas = window.datosFaq;
-
-        // 2. Generar HTML
+        // Generar HTML usando la base de datos local dbFaq
         let htmlContent = '';
-        preguntas.forEach(item => {
+        
+        dbFaq.forEach(item => {
             htmlContent += `
                 <div class="faq-item">
                     <div class="faq-pregunta">
@@ -33,9 +88,10 @@ function cargarFAQ() {
                 </div>
             `;
         });
+        
         contenedor.innerHTML = htmlContent;
 
-        // 3. Activar el Acordeón
+        // Activar el Acordeón después de generar el contenido
         activarAcordeon();
 
     } catch (error) {
@@ -51,17 +107,6 @@ function activarAcordeon() {
         const pregunta = item.querySelector('.faq-pregunta');
         
         pregunta.addEventListener('click', () => {
-            // Opción: Cerrar otros al abrir uno (estilo acordeón estricto)
-            // Descomenta esto si quieres que solo se abra uno a la vez
-            /*
-            items.forEach(otroItem => {
-                if (otroItem !== item && otroItem.classList.contains('active')) {
-                    otroItem.classList.remove('active');
-                    otroItem.querySelector('.faq-respuesta').style.maxHeight = null;
-                }
-            });
-            */
-
             // Abrir/Cerrar el actual
             item.classList.toggle('active');
             
