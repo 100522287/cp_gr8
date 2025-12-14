@@ -51,7 +51,7 @@
                     <li><a href="nosotros.html" data-lang="nav_about">Nosotros</a></li>
                 </ul>
                 <div class="idioma-login" id="panel-usuario-nav">
-                    <select id="selector-idioma" class="selector-idioma">
+                    <select id="selector-idioma" class="selector-idioma" aria-label="Seleccionar idioma">
                         <option value="es">Español</option>
                         <option value="en">English</option>
                     </select>
@@ -99,12 +99,12 @@
                             <form id="form-compra" onsubmit="validarCompra(event)" class="form-pago">
 
                                 <div class="grupo-input-dark">
-                                    <label data-lang="label_name">Nombre y Apellido/s</label>
+                                    <label for="nombre_cliente" data-lang="label_name">Nombre y Apellido/s</label>
                                     <input type="text" id="nombre_cliente" placeholder="Ej: Juan Pérez" required>
                                 </div>
 
                                 <div class="grupo-input-dark">
-                                    <label data-lang="label_payment_method">Forma de pago</label>
+                                    <label for="metodo_pago" data-lang="label_payment_method">Forma de pago</label>
                                     <select id="metodo_pago" class="select-pago">
                                         <option value="visa">Tarjeta VISA</option>
                                         <option value="mastercard">Mastercard</option>
@@ -113,23 +113,23 @@
                                 </div>
 
                                 <div class="grupo-input-dark">
-                                    <label data-lang="label_card_num">Número de tarjeta</label>
+                                    <label for="num_tarjeta" data-lang="label_card_num">Número de tarjeta</label>
                                     <input type="text" id="num_tarjeta" placeholder="0000 0000 0000 0000" maxlength="19" required>
                                 </div>
 
                                 <div class="fila-doble">
                                     <div class="grupo-input-dark">
-                                        <label data-lang="label_expiry">Caducidad</label>
+                                        <label for="fecha_caducidad" data-lang="label_expiry">Caducidad</label>
                                         <input type="month" id="fecha_caducidad" required>
                                     </div>
                                     <div class="grupo-input-dark">
-                                        <label data-lang="label_cvv">CVV</label>
+                                        <label for="cvv" data-lang="label_cvv">CVV</label>
                                         <input type="text" id="cvv" placeholder="123" maxlength="3" required>
                                     </div>
                                 </div>
 
                                 <div class="grupo-input-dark">
-                                    <label data-lang="label_email">Correo electrónico</label>
+                                    <label for="email_cliente" data-lang="label_email">Correo electrónico</label>
                                     <input type="email" id="email_cliente" placeholder="juanprz23@gmail.com" required>
                                 </div>
 
