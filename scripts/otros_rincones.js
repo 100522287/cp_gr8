@@ -1,4 +1,4 @@
-// --- BASE DE DATOS COMPLETA (Datos extraídos de tu JSON) ---
+// --- BASE DE DATOS COMPLETA ---
 const dbRincones = [
     // --- EUROPA ---
     { id: 1, titulo: "Viena, Austria", descripcion: "Ciudad imperial con museos y música clásica a cada paso. El Palacio de Schönbrunn y la Ringstrasse condensan el barroco.", imagen: "https://images.unsplash.com/photo-1731223832507-ebe5373129e6?auto=format&fit=crop&q=60&w=500", likes: 340 },
@@ -67,9 +67,26 @@ function cargarRincones() {
     const contenedor = document.getElementById('contenedor-rincones-dinamico');
     if (!contenedor) return;
 
+    // Recuperar IDs de los rincones ya votados del almacenamiento local
+    const votosGuardados = JSON.parse(localStorage.getItem('votos_rincones')) || [];
+
     let htmlContent = '';
 
     dbRincones.forEach(rincon => {
+        // Verificar si este rincón ya fue votado
+        const yaVotado = votosGuardados.includes(rincon.id);
+        
+        // Si ya votó, sumamos 1 visualmente para que persista el incremento
+        // (Nota: esto es una simulación visual, ya que dbRincones se resetea al recargar)
+        let numeroLikes = rincon.likes;
+        if (yaVotado) {
+            numeroLikes++;
+        }
+
+        // Determinar estilos según si ya votó
+        const claseIcono = yaVotado ? 'fas' : 'far'; // fas = solido (votado), far = borde (no votado)
+        const estiloColor = yaVotado ? 'color: #e74c3c;' : ''; // Rojo si votado
+
         htmlContent += `
             <article class="tarjeta-rincon-vertical">
                 <div class="marco-imagen">
@@ -82,9 +99,9 @@ function cargarRincones() {
                     </div>
                     
                     <div class="accion-like">
-                        <button class="boton-like" data-id="${rincon.id}">
-                            <i class="far fa-heart icono-corazon"></i> 
-                            <span id="contador-likes-${rincon.id}" class="contador-texto">${rincon.likes}</span>
+                        <button class="boton-like" data-id="${rincon.id}" style="${estiloColor}">
+                            <i class="${claseIcono} fa-heart icono-corazon"></i> 
+                            <span id="contador-likes-${rincon.id}" class="contador-texto">${numeroLikes}</span>
                         </button>
                     </div>
                 </div>
@@ -102,23 +119,41 @@ function activarBotonesLike() {
     botones.forEach(boton => {
         boton.addEventListener('click', function() {
             const idRincon = parseInt(this.getAttribute('data-id'));
+            
+            // 1. Verificar LocalStorage
+            let votosGuardados = JSON.parse(localStorage.getItem('votos_rincones')) || [];
+
+            // 2. Si ya está en la lista, no permitir votar de nuevo
+            if (votosGuardados.includes(idRincon)) {
+                alert("¡Ya has votado por este rincón! Solo se permite un voto.");
+                return;
+            }
+
+            // 3. Si no ha votado, proceder con la lógica
             const rinconEncontrado = dbRincones.find(item => item.id === idRincon);
 
             if (rinconEncontrado) {
-                rinconEncontrado.likes++;
+                // Actualizar contador visualmente
+                // (Nota: Sumamos 1 al valor actual del HTML para consistencia)
                 const spanContador = document.getElementById(`contador-likes-${idRincon}`);
-                spanContador.textContent = rinconEncontrado.likes;
+                let likesActuales = parseInt(spanContador.textContent);
+                spanContador.textContent = likesActuales + 1;
                 
-                // Efecto visual
+                // Cambiar estilos (Corazón rojo y sólido)
                 const icono = this.querySelector('.icono-corazon');
                 icono.classList.remove('far'); // Quita borde
                 icono.classList.add('fas');    // Pone relleno
                 this.style.color = '#e74c3c';  // Pone el botón rojo
                 
+                // Animación
                 icono.classList.add('animacion-latido');
                 setTimeout(() => {
                     icono.classList.remove('animacion-latido');
                 }, 300);
+
+                // 4. GUARDAR EN LOCALSTORAGE
+                votosGuardados.push(idRincon);
+                localStorage.setItem('votos_rincones', JSON.stringify(votosGuardados));
             }
         });
     });
