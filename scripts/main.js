@@ -80,6 +80,8 @@ const traducciones = {
         corners_subtitle1: "¡Tu opinión importa!",
         corners_subtitle2: "Vota qué pack te gustaría que volviese a estar disponible",
         about_title: "Mochileros por el mundo",
+        blog_title: "Blog de Viajes",
+        blog_subtitle: "Guías detalladas, rutas secretas y consejos para viajeros intrépidos.",
 
         
         //Portal de compra
@@ -232,6 +234,8 @@ const traducciones = {
         ph_pass_repeat: "Repeat password",
         text_no_file: "No file selected",
         btn_choose_file: "Choose file",
+        blog_title: "Travel Blog",
+        blog_subtitle: "Detailed guides, secret routes, and tips for intrepid travelers.",
 
         //about us
         about_title: "Backpackers of the World",
