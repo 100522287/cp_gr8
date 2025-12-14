@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     actualizarHeaderSesion();
 
     // 2. Cargar los packs más populares
-        cargarPacksHome();
+    cargarPacksHome();
 
     // 3. Personalizar la portada si estamos en Inicio
     actualizarHero();
