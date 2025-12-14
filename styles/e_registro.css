@@ -49,6 +49,48 @@
     text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
+/* --- INPUT FILE PERSONALIZADO --- */
+.custom-file-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 5px;
+}
+
+/* Ocultamos el input feo original del navegador */
+.input-file-oculto {
+    display: none;
+}
+
+/* Creamos nuestro propio botón bonito */
+.btn-archivo-custom {
+    background-color: #8d8a8a;
+    color: #333;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: background-color 0.3s;
+    border: 1px solid #e1e0db;
+    display: inline-block;
+}
+
+.btn-archivo-custom:hover {
+    background-color: #d6d6d6;
+}
+
+/* El texto que dice "Ningún archivo..." */
+.texto-archivo {
+    color: #E0F7FA; /* Color claro para que se vea sobre el fondo azul oscuro */
+    font-size: 0.9rem;
+    font-style: italic;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;
+}
+
 /* --- CAMPOS DEL FORMULARIO --- */
 .grupo-input {
     margin-bottom: 15px;

@@ -106,6 +106,10 @@ const traducciones = {
         label_photo: "Añadir foto (Opcional):",
         btn_enter: "Iniciar sesión",
         btn_register: "Registrar",
+        ph_pass: "Mínimo 8 carácteres, mayúscula, número...",
+        ph_pass_repeat: "Repite la contraseña",
+        text_no_file: "Ningún archivo seleccionado",
+        btn_choose_file: "Seleccionar archivo",
 
         //sobre nosotros
         about_title: "Mochileros por el mundo",
@@ -218,6 +222,10 @@ const traducciones = {
         label_photo: "Add Photo (Optional):",
         btn_enter: "Log In",
         btn_register: "Register",
+        ph_pass: "Min 8 chars, 1 uppercase, 1 number...",
+        ph_pass_repeat: "Repeat password",
+        text_no_file: "No file selected",
+        btn_choose_file: "Choose file",
 
         //about us
         about_title: "Backpackers of the World",
@@ -299,6 +307,16 @@ function aplicarTraducciones(lang) {
             } else {
                 el.textContent = traducciones[lang][key];
             }
+        }
+        
+    });
+
+    const elementosPlaceholder = document.querySelectorAll('[data-lang-placeholder]');
+    
+    elementosPlaceholder.forEach(el => {
+        const key = el.getAttribute('data-lang-placeholder');
+        if (traducciones[lang] && traducciones[lang][key]) {
+            el.placeholder = traducciones[lang][key];
         }
     });
 

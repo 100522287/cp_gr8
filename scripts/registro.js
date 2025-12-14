@@ -81,3 +81,26 @@ function validarRegistro() {
     alert(msgs.exito);
     window.location.href = "login.html";
 }
+
+// Función para actualizar el texto del input file personalizado
+function actualizarNombreArchivo() {
+    const input = document.getElementById('foto');
+    const textoSpan = document.getElementById('texto-nombre-archivo');
+    
+    if (input.files && input.files.length > 0) {
+        // Si hay archivo, mostramos su nombre
+        textoSpan.textContent = input.files[0].name;
+        // Quitamos el data-lang para que el traductor no sobrescriba el nombre del archivo
+        textoSpan.removeAttribute('data-lang');
+        textoSpan.style.fontStyle = "normal";
+    } else {
+        // Si no hay archivo, volvemos al texto por defecto
+        const lang = localStorage.getItem('idioma') || 'es';
+        // Recuperamos el texto del diccionario global 'traducciones' (de main.js)
+        if (typeof traducciones !== 'undefined') {
+            textoSpan.textContent = traducciones[lang]['text_no_file'];
+        }
+        textoSpan.setAttribute('data-lang', 'text_no_file');
+        textoSpan.style.fontStyle = "italic";
+    }
+}

@@ -86,12 +86,12 @@
 
                         <div class="grupo-input">
                             <label for="pass1" data-lang="label_password">Contraseña</label>
-                            <input type="password" id="pass1" name="pass1" placeholder="Mínimo 8 carácteres, mayúscula, número..." required>
+                            <input type="password" id="pass1" name="pass1" placeholder="Mínimo 8 carácteres, mayúscula, número..." data-lang-placeholder="ph_pass" required>
                         </div>
 
                         <div class="grupo-input">
                             <label for="pass2" data-lang="label_pass_repeat">Repetir contraseña</label>
-                            <input type="password" id="pass2" name="pass2" placeholder="Repite la contraseña" required>
+                            <input type="password" id="pass2" name="pass2" placeholder="Repite la contraseña" data-lang-placeholder="ph_pass_repeat" required>
                         </div>
 
                         <div class="grupo-input">
@@ -100,8 +100,14 @@
                         </div>
 
                         <div class="grupo-input grupo-foto">
-                            <label for="foto" data-lang="label_photo">Añadir foto (Opcional):</label>
-                            <input type="file" id="foto" name="foto" class="input-file" accept="image/*">
+                            <label data-lang="label_photo">Añadir foto (Opcional):</label>
+                            
+                            <div class="custom-file-container">
+                                <label for="foto" class="btn-archivo-custom" data-lang="btn_choose_file">Seleccionar archivo</label>
+                                <span id="texto-nombre-archivo" class="texto-archivo" data-lang="text_no_file">Ningún archivo seleccionado</span>
+                                
+                                <input type="file" id="foto" name="foto" class="input-file-oculto" accept="image/*" onchange="actualizarNombreArchivo()">
+                            </div>
                         </div>
 
                         <div class="grupo-checkbox">
