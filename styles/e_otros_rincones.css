@@ -89,6 +89,7 @@
     /* Si el título es muy largo, lo corta en 2 líneas */
     display: -webkit-box;
     -webkit-line-clamp: 2;
+    line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
@@ -100,7 +101,8 @@
     margin: 0;
     /* TRUCO CLAVE: Cortar texto a 3 líneas para igualar alturas */
     display: -webkit-box;
-    -webkit-line-clamp: 3; 
+    -webkit-line-clamp: 3;
+    line-clamp: 3; 
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
