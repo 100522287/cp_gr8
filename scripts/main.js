@@ -116,7 +116,13 @@ const traducciones = {
         about_p1: "Somos más que una agencia de viajes; somos un equipo de exploradores apasionados con una misión clara: hacer que tus sueños de viajar por el mundo se hagan realidad, sin estrés y sin complicaciones.",
         about_p2: "Entendemos que cada viaje es una historia personal. Por eso, nos dedicamos a diseñar \"packs\" de viaje que van más allá de lo convencional. No solo reservamos tu vuelo y tu hotel; creamos experiencias completas. Seleccionamos cuidadosamente los mejores alojamientos, organizamos traslados y añadimos esas actividades y \"más\" que convierten unas simples vacaciones en un recuerdo para toda la vida.",
         about_p3: "Desde las calles vibrantes de una metrópoli hasta la tranquilidad de una playa remota, nuestro trabajo es ocuparnos de cada detalle para que tú solo tengas una tarea: disfrutar.",
-        about_quote: "Deja que nos encarguemos de la logística. El mundo te está esperando."
+        about_quote: "Deja que nos encarguemos de la logística. El mundo te está esperando.",
+
+        //foro
+        forum_title: "Foro de Viajeros",
+        forum_subtitle: "Comparte experiencias, busca compañeros y resuelve dudas.",
+        forum_latest_topics: "Últimos Temas",
+        forum_new_topic: "+ Nuevo Tema"
 
     },
     en: {
@@ -233,6 +239,12 @@ const traducciones = {
         about_p2: "We understand that every trip is a personal story. That's why we dedicate ourselves to designing travel \"packs\" that go beyond the conventional. We don't just book your flight and hotel; we create complete experiences. We carefully select the best accommodations, organize transfers, and add those activities and \"extras\" that turn a simple vacation into a lifelong memory.",
         about_p3: "From the vibrant streets of a metropolis to the tranquility of a remote beach, our job is to take care of every detail so that you only have one task: to enjoy.",
         about_quote: "Let us handle the logistics. The world is waiting for you.",
+
+        //forum
+        forum_title: "Travelers Forum",
+        forum_subtitle: "Share experiences, find companions, and solve doubts.",
+        forum_latest_topics: "Latest Topics",
+        forum_new_topic: "+ New Topic"
     }
 };
 
