@@ -1,3 +1,5 @@
+
+// Función para validar el formulario de registro
 function validarRegistro() {
     // 1. DETECTAR IDIOMA
     const lang = localStorage.getItem('idioma') || 'es';
@@ -22,6 +24,7 @@ function validarRegistro() {
         }
     };
 
+    // Obtener mensajes según el idioma
     const msgs = mensajes[lang];
 
     // 2. Obtener valores

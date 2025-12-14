@@ -172,7 +172,9 @@ document.addEventListener("DOMContentLoaded", function() {
     inicializarFiltros();
 });
 
+// Función para cargar los paquetes desde la "base de datos" al DOM
 function cargarPacks() {
+    // CONTENEDOR PRINCIPAL
     const contenedor = document.getElementById("listaPaquetes");
     if (!contenedor) return;
 
@@ -181,8 +183,10 @@ function cargarPacks() {
     const textoDesde = lang === 'es' ? 'Desde' : 'From';
     const textoComprar = lang === 'es' ? 'Comprar' : 'Buy Now';
 
+    // GENERAR HTML
     let htmlContent = "";
 
+    // Recorrer cada paquete
     dbPacks.forEach(pack => {
         // Generar lista de características (li) según idioma
         const detalles = pack.detalles[lang] || pack.detalles.es;
@@ -211,13 +215,17 @@ function cargarPacks() {
         `;
     });
 
+    // Insertar en el DOM
     contenedor.innerHTML = htmlContent;
 }
 
+// Función para inicializar el toggle de filtros en móvil
 function inicializarToggleMobile() {
+    // Obtener elementos
     const btnToggle = document.getElementById("btnToggleFiltros");
     const panelMobile = document.getElementById("panelFiltrosMobile");
     
+    // Añadir listener
     if (btnToggle && panelMobile) {
         btnToggle.addEventListener("click", function() {
             btnToggle.classList.toggle("active");
@@ -226,6 +234,7 @@ function inicializarToggleMobile() {
     }
 }
 
+// Función para inicializar los listeners de los filtros
 function inicializarFiltros() {
     // Listeners para checkboxes Desktop (tiempo real)
     document.querySelectorAll('.panel-filtros-lateral input[type="checkbox"]').forEach(checkbox => {
@@ -248,6 +257,7 @@ function inicializarFiltros() {
     const btnLimpiarDesktop = document.getElementById("btnLimpiarFiltrosDesktop");
     const btnLimpiarMobile = document.getElementById("btnLimpiarFiltros");
 
+    // Función común para limpiar todos los filtros
     const limpiarTodo = () => {
         document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
         aplicarFiltros();
@@ -265,6 +275,7 @@ function inicializarFiltros() {
     });
 }
 
+// Función para aplicar los filtros seleccionados
 function aplicarFiltros() {
     const paquetesEnDom = document.querySelectorAll(".pack-item");
     
@@ -273,14 +284,17 @@ function aplicarFiltros() {
     const estrellas = obtenerValoresMarcados("estrellas");
     const tipos = obtenerValoresMarcados("tipo");
 
+    // Determinar si hay algún filtro activo
     const hayFiltros = paises.length > 0 || estrellas.length > 0 || tipos.length > 0;
 
+    // Filtrar paquetes
     paquetesEnDom.forEach(pack => {
         if (!hayFiltros) {
             pack.classList.remove("hidden");
             return;
         }
 
+        // Obtener datos del paquete
         const pPais = pack.dataset.pais;
         const pEstrellas = pack.dataset.estrellas;
         const pTipos = pack.dataset.tipo.split(" "); 
@@ -290,6 +304,7 @@ function aplicarFiltros() {
         const matchEstrellas = estrellas.length === 0 || estrellas.includes(pEstrellas);
         const matchTipo = tipos.length === 0 || tipos.some(t => pTipos.includes(t));
 
+        // Mostrar u ocultar según coincidencias
         if (matchPais && matchEstrellas && matchTipo) {
             pack.classList.remove("hidden");
         } else {
@@ -298,15 +313,18 @@ function aplicarFiltros() {
     });
 }
 
+// Función para obtener los valores marcados de un grupo de checkboxes
 function obtenerValoresMarcados(dataFilter) {
     return Array.from(document.querySelectorAll(`.panel-filtros-lateral input[data-filter="${dataFilter}"]:checked`))
         .map(input => input.value);
 }
 
+// Función para sincronizar checkboxes entre móvil y desktop
 function sincronizarCheckboxes(direccion) {
     const mobileCBS = document.querySelectorAll('.panel-filtros-mobile input[type="checkbox"]');
     const desktopCBS = document.querySelectorAll('.panel-filtros-lateral input[type="checkbox"]');
 
+    // Móvil a Desktop
     if (direccion === "mobile-to-desktop") {
         mobileCBS.forEach((cb, i) => { if(desktopCBS[i]) desktopCBS[i].checked = cb.checked; });
     }

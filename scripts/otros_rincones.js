@@ -305,20 +305,24 @@ document.addEventListener('DOMContentLoaded', () => {
     cargarRincones();
 });
 
+// Función para cargar y mostrar los rincones turísticos
 function cargarRincones() {
+    // CONTENEDOR PRINCIPAL
     const contenedor = document.getElementById('contenedor-rincones-dinamico');
     if (!contenedor) return;
 
-    // 1. DETECTAR IDIOMA
+    // DETECTAR IDIOMA
     const lang = localStorage.getItem('idioma') || 'es';
     const votosGuardados = JSON.parse(localStorage.getItem('votos_rincones')) || [];
 
     let htmlContent = '';
 
+    // RECORRER BASE DE DATOS
     dbRincones.forEach(rincon => {
         const yaVotado = votosGuardados.includes(rincon.id);
         let numeroLikes = rincon.likes + (yaVotado ? 1 : 0);
         
+        // 1. CONFIGURAR ESTILO DEL BOTÓN SEGÚN VOTO
         const claseIcono = yaVotado ? 'fas' : 'far';
         const estiloColor = yaVotado ? 'color: #b01200ff;' : '';
 
@@ -326,6 +330,7 @@ function cargarRincones() {
         const titulo = rincon.titulo[lang] || rincon.titulo.es;
         const desc = rincon.descripcion[lang] || rincon.descripcion.es;
 
+        // CONSTRUIR TARJETA HTML
         htmlContent += `
             <article class="tarjeta-rincon-vertical">
                 <div class="marco-imagen">
@@ -348,13 +353,15 @@ function cargarRincones() {
         `;
     });
 
+    // INSERTAR CONTENIDO EN EL DOM
     contenedor.innerHTML = htmlContent;
     activarBotonesLike();
 }
 
+// Función para activar la funcionalidad de los botones "like"
 function activarBotonesLike() {
     const botones = document.querySelectorAll('.boton-like');
-
+    // RECORRER CADA BOTÓN
     botones.forEach(boton => {
         boton.addEventListener('click', function() {
             const idRincon = parseInt(this.getAttribute('data-id'));
@@ -363,29 +370,35 @@ function activarBotonesLike() {
             // 1. DETECTAR IDIOMA PARA ALERTAS
             const lang = localStorage.getItem('idioma') || 'es';
 
+            // 2. VERIFICAR SI YA SE VOTÓ
             if (votosGuardados.includes(idRincon)) {
                 const msg = lang === 'es' ? "¡Ya has votado por este rincón! Solo se permite un voto." : "You have already voted for this spot! Only one vote is allowed.";
                 alert(msg);
                 return;
             }
-
+            // 3. ACTUALIZAR CONTADOR Y ESTILO
             const rinconEncontrado = dbRincones.find(item => item.id === idRincon);
 
+            // Asegurarse de que el rincón exista
             if (rinconEncontrado) {
+                // Actualizar contador en la interfaz
                 const spanContador = document.getElementById(`contador-likes-${idRincon}`);
                 let likesActuales = parseInt(spanContador.textContent);
                 spanContador.textContent = likesActuales + 1;
                 
+                // Cambiar estilo del botón
                 const icono = this.querySelector('.icono-corazon');
                 icono.classList.remove('far'); 
                 icono.classList.add('fas');    
                 this.style.color = '#a51000ff';  
                 
+                // Animación de latido
                 icono.classList.add('animacion-latido');
                 setTimeout(() => {
                     icono.classList.remove('animacion-latido');
                 }, 300);
 
+                // 4. GUARDAR VOTO EN LOCALSTORAGE
                 votosGuardados.push(idRincon);
                 localStorage.setItem('votos_rincones', JSON.stringify(votosGuardados));
             }

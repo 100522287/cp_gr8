@@ -273,6 +273,8 @@ document.addEventListener("DOMContentLoaded", function () {
 // ============================================
 // 2. LÓGICA DE IDIOMA
 // ============================================
+
+// Función para inicializar el idioma al cargar la página
 function inicializarIdioma() {
     // Recuperar idioma guardado o defecto 'es'
     const idiomaGuardado = localStorage.getItem('idioma') || 'es';
@@ -292,6 +294,7 @@ function inicializarIdioma() {
     }
 }
 
+// Función para cambiar idioma
 function cambiarIdioma(lang) {
     // 1. Guardar preferencia
     localStorage.setItem('idioma', lang);
@@ -310,10 +313,11 @@ function cambiarIdioma(lang) {
     if (document.querySelector(".hero-content")) actualizarHero();
 }
 
+// Función para aplicar traducciones a los elementos con data-lang
 function aplicarTraducciones(lang) {
     // Buscar todos los elementos con atributo data-lang en el HTML
     const elementos = document.querySelectorAll('[data-lang]');
-    
+    // Iterar y asignar el texto correspondiente para cada elemento
     elementos.forEach(el => {
         const key = el.getAttribute('data-lang');
         if (traducciones[lang] && traducciones[lang][key]) {
@@ -352,6 +356,8 @@ function aplicarTraducciones(lang) {
 // ============================================
 // 3. FUNCIONES DE SESIÓN Y HEADER
 // ============================================
+
+// Función para actualizar el header según estado de sesión
 function actualizarHeaderSesion() {
     const panelUsuario = document.getElementById("panel-usuario-nav");
     const usuarioActivo = sessionStorage.getItem("usuarioActivo");
@@ -365,7 +371,7 @@ function actualizarHeaderSesion() {
             <option value="en" ${idiomaActual === 'en' ? 'selected' : ''}>English</option>
         </select>
     `;
-
+    // Si esta logueado
     if (panelUsuario && usuarioActivo) {
         const datosUsuario = JSON.parse(localStorage.getItem("user_" + usuarioActivo));
         if (datosUsuario) {
@@ -394,10 +400,12 @@ function actualizarHeaderSesion() {
     }
 }
 
+// Función para cerrar sesión
 function cerrarSesion() {
     const lang = localStorage.getItem('idioma') || 'es';
     const msg = lang === 'es' ? "¿Seguro que quieres cerrar sesión?" : "Are you sure you want to logout?";
     if (confirm(msg)) {
+        // Se elimina la sesión activa del usuario
         sessionStorage.removeItem("usuarioActivo");
         window.location.href = "home_no_session.html"; 
     }
@@ -444,26 +452,28 @@ const dbPacksHome = [
     }
 ];
 
+// Función para cargar packs en la home
 function cargarPacksHome() {
     const contenedor = document.getElementById("contenedor-packs-home");
+    // Si no existe el contenedor, salir
     if (!contenedor) return;
-
+    
     const lang = localStorage.getItem('idioma') || 'es';
     const textoBtn = lang === 'es' ? 'Comprar' : 'Buy Now';
     const textoDesde = lang === 'es' ? 'Desde' : 'From';
-
+    // Generar HTML dinámico
     let htmlContent = "";
-
+    // Iterar sobre la base de datos de packs
     dbPacksHome.forEach(pack => {
         // Elegir texto según idioma
         const titulo = pack.titulo[lang] || pack.titulo.es;
         const detalles = pack.detalles[lang] || pack.detalles.es;
-
+        // Generar lista de detalles
         let listaDetalles = "";
         detalles.forEach(detalle => {
             listaDetalles += `<li>${detalle}</li>`;
         });
-
+        // Construir la tarjeta del pack
         htmlContent += `
             <div class="tarjeta-pack">
                 <div class="imagen-pack">
@@ -478,16 +488,19 @@ function cargarPacksHome() {
             </div>
         `;
     });
-
+    // Insertar el HTML generado en el contenedor
     contenedor.innerHTML = htmlContent;
 }
 
+// Función para actualizar el hero con saludo personalizado
 function actualizarHero() {
+    // Obtener elementos del hero
     const usuarioActivo = sessionStorage.getItem("usuarioActivo");
     const lang = localStorage.getItem('idioma') || 'es';
     const heroTitle = document.querySelector(".hero-content h1");
     const heroDesc = document.querySelector(".hero-content p");
 
+    // Si hay usuario activo, personalizar saludo
     if (usuarioActivo && heroTitle) {
         const datosUsuario = JSON.parse(localStorage.getItem("user_" + usuarioActivo));
         if (datosUsuario) {
@@ -505,14 +518,19 @@ function actualizarHero() {
 // ============================================
 // 5. CARRUSEL Y UTILIDADES
 // ============================================
+
+// Función para inicializar el carrusel de artículos en la home
 function carrusel() {
+    // Elementos del carrusel
     const track = document.getElementById("track-articulos");
     const botonIzq = document.getElementById("boton_izq_articulos");
     const botonDer = document.getElementById("boton_der_articulos");
 
+    // Validar existencia de elementos
     if (!track || !botonIzq || !botonDer) return;
     if (!window.datosArticulos) return; // Se define en articulos.js
 
+    // Cargar artículos dinámicamente
     try {
         const lang = localStorage.getItem('idioma') || 'es';
         const articulosCarrusel = window.datosArticulos;
@@ -529,6 +547,7 @@ function carrusel() {
                 desc = art.descripcion[lang] || art.descripcion.es;
             }
 
+            // Construir tarjeta de artículo
             htmlContent += `
                 <a href="articulos.html?id=${art.id}&from=home" style="text-decoration:none; display:block; height:100%;">
                     <div class="tarjeta-articulo">
@@ -539,10 +558,12 @@ function carrusel() {
         });
         track.innerHTML = htmlContent;
 
+        // Lógica de scroll del carrusel
         function obtenerAncho() {
             const enlace = track.querySelector('a');
             return enlace ? enlace.offsetWidth + 30 : 300;
         }
+        // Eventos botones
         botonDer.addEventListener("click", () => { track.scrollBy({ left: obtenerAncho(), behavior: 'smooth' }); });
         botonIzq.addEventListener("click", () => { track.scrollBy({ left: -obtenerAncho(), behavior: 'smooth' }); });
 
@@ -551,14 +572,17 @@ function carrusel() {
     }
 }
 
+// Función para resaltar el menú activo según la página actual
 function resaltarMenuActivo() {
     const path = window.location.pathname;
     const paginaActual = path.split("/").pop() || "home_no_session.html";
     const enlaces = document.querySelectorAll('.menu-header-footer a, .idioma-login a');
 
+    // Iterar y comparar href con la página actual
     enlaces.forEach(link => {
         link.classList.remove('active');
         const href = link.getAttribute('href');
+        // Comparar solo el nombre del archivo
         if (href && (href === paginaActual || href.endsWith("/" + paginaActual))) {
             if (!link.classList.contains('logo-nav')) {
                 link.classList.add('active');
