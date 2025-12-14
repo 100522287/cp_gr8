@@ -11,6 +11,9 @@ document.addEventListener("DOMContentLoaded", function () {
     // 4. Iniciar Carrusel (si existe en la página)
     carrusel();
 
+    // 5. Resaltar menú activo automáticamente
+    resaltarMenuActivo();
+
     
 });
 
@@ -262,4 +265,32 @@ function carrusel() {
     } catch (error) {
         console.error("Error carrusel:", error);
     }
+}
+
+// función para resaltar los títulos del header
+function resaltarMenuActivo() {
+    // 1. Obtener el nombre del archivo actual de la URL
+    const path = window.location.pathname;
+    const paginaActual = path.split("/").pop() || "home_no_session.html"; // Si es raíz, asume home
+
+    // 2. Seleccionar todos los enlaces del menú y del login
+    const enlaces = document.querySelectorAll('.menu-header-footer a, .idioma-login a');
+
+    enlaces.forEach(link => {
+        // Limpiamos cualquier clase 'active' que viniera hardcodeada en el HTML
+        link.classList.remove('active');
+
+        // Obtenemos el destino del enlace
+        const href = link.getAttribute('href');
+
+        // 3. Comparar: Si el enlace lleva a donde estamos ahora...
+        // (Usamos endsWith para evitar problemas con rutas relativas "./")
+        if (href && (href === paginaActual || href.endsWith("/" + paginaActual))) {
+            
+            // 4. EXCEPCIÓN: No marcar el Logo (mochila)
+            if (!link.classList.contains('logo-nav')) {
+                link.classList.add('active');
+            }
+        }
+    });
 }

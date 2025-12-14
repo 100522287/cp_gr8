@@ -196,6 +196,25 @@ body.body-mochileros {
     width: 100%;
 }
 
+.menu-header-footer li a.active,
+.idioma-login a.active {
+    color: #0077B6 !important; /* Texto Azul */
+    font-weight: 700;
+    position: relative;
+}
+
+.menu-header-footer li a.active::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    bottom: -5px;
+    left: 0;
+    background-color: #FFB703; /* Amarillo */
+    border-radius: 2px;
+    transform: none;
+}
+
 .selector-idioma {
     border: 1px solid #ccc;
     background: transparent;

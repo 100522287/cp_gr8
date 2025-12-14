@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     cargarDatosCompra();
+
 });
 
 // BASE DE DATOS AMPLIADA DE PACKS
@@ -185,81 +186,89 @@ function cargarDatosCompra() {
     }
 }
 
-// Añadimos esto al inicio para cargar datos del usuario si existe
-document.addEventListener('DOMContentLoaded', () => {
-    cargarDatosCompra();
-    prellenarDatosUsuario();
-});
+function validarCompra(event) {
+    // Evitamos que el formulario se envíe y recargue la página automáticamente
+    event.preventDefault();
 
-function prellenarDatosUsuario() {
-    const usuarioActivo = sessionStorage.getItem("usuarioActivo");
-    if (usuarioActivo) {
-        const datosUsuario = JSON.parse(localStorage.getItem("user_" + usuarioActivo));
-        if (datosUsuario) {
-            document.getElementById("nombre_cliente").value = datosUsuario.nombre;
-            document.getElementById("email_cliente").value = datosUsuario.email;
-        }
-    }
-}
-
-function validarCompra() {
+    // 1. Obtener valores de los inputs por su ID
     const tarjeta = document.getElementById("num_tarjeta").value;
     const cvv = document.getElementById("cvv").value;
-    const fechaCaducidad = document.getElementById("fecha_caducidad").value; // Formato YYYY-MM
+    const fechaCaducidad = document.getElementById("fecha_caducidad").value; // YYYY-MM
+    const email = document.getElementById("email_cliente").value;
 
-    // 1. Validar longitud tarjeta (simulada)
-    if (tarjeta.length < 13 || isNaN(tarjeta.replace(/\s/g, ''))) {
-        alert("Número de tarjeta inválido.");
+    // --- VALIDACIÓN 1: CORREO ELECTRÓNICO ---
+    // Regex: Empieza con letras/números/puntos/guiones + @ + letras/números + . + letras (2 o más)
+    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    
+    if (!emailRegex.test(email)) {
+        alert("El correo electrónico no es válido. Debe ser formato 'usuario@dominio.com'.");
         return;
     }
 
-    // 2. Validar CVV
-    if (cvv.length !== 3 || isNaN(cvv)) {
-        alert("CVV inválido (debe ser 3 dígitos).");
-        return;
-    }
-
-    // 3. REQUISITO: Validar fecha no menor a Diciembre 2025
+    // --- VALIDACIÓN 2: FECHA DE CADUCIDAD (Dinámica) ---
     if (!fechaCaducidad) {
         alert("Introduce la fecha de caducidad.");
         return;
     }
 
-    const [anio, mes] = fechaCaducidad.split('-').map(Number);
+    // Obtenemos año y mes del input (formato YYYY-MM)
+    const [anioInput, mesInput] = fechaCaducidad.split('-').map(Number);
 
-    if (anio < 2025 || (anio === 2025 && mes < 12)) {
-        alert("La tarjeta debe tener una fecha de caducidad posterior a Noviembre 2025.");
+    // Obtenemos fecha actual
+    const fechaActual = new Date();
+    const anioActual = fechaActual.getFullYear();
+    const mesActual = fechaActual.getMonth() + 1; // getMonth() devuelve 0-11, sumamos 1
+
+    // Comparamos: Si el año es menor, o si es el mismo año pero el mes ya pasó
+    if (anioInput < anioActual || (anioInput === anioActual && mesInput < mesActual)) {
+        alert("La tarjeta está caducada. Por favor usa una tarjeta válida.");
         return;
     }
 
-    // 4. Guardar compra en el usuario (Simulación de backend)
+    // --- VALIDACIÓN 3: CVV ---
+    // Regex: Exactamente 3 dígitos numéricos (\d)
+    const cvvRegex = /^\d{3}$/;
+
+    if (!cvvRegex.test(cvv)) {
+        alert("El CVV es inválido. Debe contener exactamente 3 números.");
+        return;
+    }
+
+    // --- VALIDACIÓN 4: NÚMERO DE TARJETA (Opcional pero recomendado) ---
+    // Eliminamos espacios y comprobamos que sean números y longitud mínima 13
+    const tarjetaLimpia = tarjeta.replace(/\s/g, '');
+    if (tarjetaLimpia.length < 16 || isNaN(tarjetaLimpia)) {
+        alert("El número de tarjeta parece incorrecto.");
+        return;
+    }
+
+    // --- PROCESAR COMPRA ---
+    // Guardar compra en el usuario (Simulación)
     const usuarioActivo = sessionStorage.getItem("usuarioActivo");
 
     if (usuarioActivo) {
         const datosUsuario = JSON.parse(localStorage.getItem("user_" + usuarioActivo));
-
-        // Obtenemos el pack actual
+        
+        // Obtenemos info del pack
         const params = new URLSearchParams(window.location.search);
         const idPack = params.get('id');
-        const infoPack = dbPacks[idPack] || { titulo: "Pack Desconocido", precio: "0€" };
+        const tituloPack = dbPacks && dbPacks[idPack] ? dbPacks[idPack].titulo : "Pack General";
+        const precioPack = dbPacks && dbPacks[idPack] ? dbPacks[idPack].precio : "??€";
 
         const nuevaCompra = {
-            pack: infoPack.titulo,
-            precio: infoPack.precio,
+            pack: tituloPack,
+            precio: precioPack,
             fechaCompra: new Date().toLocaleDateString(),
             metodo: document.getElementById("metodo_pago").value
         };
 
-        // Añadir al historial
         if (!datosUsuario.compras) datosUsuario.compras = [];
         datosUsuario.compras.push(nuevaCompra);
-
-        // Guardar actualización
         localStorage.setItem("user_" + usuarioActivo, JSON.stringify(datosUsuario));
 
-        alert("¡Compra realizada con éxito! Se ha guardado en tu perfil de " + datosUsuario.nombre);
+        alert(`¡Compra realizada con éxito, ${datosUsuario.nombre}! Disfruta de tu viaje.`);
     } else {
-        alert("¡Compra realizada con éxito! (Usuario invitado)");
+        alert("¡Compra realizada con éxito! (Modo Invitado)");
     }
 
     // Redirigir a inicio

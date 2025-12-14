@@ -295,17 +295,6 @@
     /* Asegura que el texto siga blanco al pasar el ratón */
 }
 
-/* Estilo activo para enlaces del nav */
-.navbar .active {
-    color: #0077B6;
-    font-weight: 700;
-}
-
-.navbar .active::after {
-    width: 100%;
-    background-color: #FFB703;
-}
-
 /* ============================================
    MEDIA QUERIES - RESPONSIVE
    ============================================ */
