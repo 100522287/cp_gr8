@@ -85,7 +85,7 @@
 .tema-categoria {
     display: inline-block;
     background-color: #E1F5FE;
-    color: #0077B6;
+    color: #005682;
     padding: 4px 10px;
     border-radius: 15px;
     font-size: 0.75rem;
@@ -107,11 +107,11 @@
 
 .tema-meta {
     font-size: 0.85rem;
-    color: #888;
+    color: #555;
 }
 
 .tema-autor {
-    color: #FFB703;
+    color: #023E8A;
     font-weight: 600;
 }
 
@@ -137,7 +137,8 @@
 .stat-label {
     font-size: 0.7rem;
     text-transform: uppercase;
-    color: #999;
+    color: #444; /* Gris casi negro */
+    font-weight: 600; /* Un poco más de peso ayuda */
 }
 
 /* --- RESPUESTAS DESPLEGABLES --- */
@@ -195,7 +196,7 @@
 
 .sin-respuestas {
     font-style: italic;
-    color: #888;
+    color: #555;
     text-align: center;
     padding: 10px;
 }
