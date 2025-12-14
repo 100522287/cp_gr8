@@ -234,6 +234,13 @@ body.body-mochileros {
     color: #0077B6;
 }
 
+.idioma-login {
+    display: flex;           /* Obliga a los elementos a ponerse en fila */
+    align-items: center;     /* Los centra verticalmente para que no se vean desalineados */
+    gap: 5px;
+}
+
+
 .idioma-login a:last-child {
     color: #0077B6;
     border: 2px solid #0077B6;

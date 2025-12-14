@@ -71,12 +71,16 @@
                 <div class="registro-card">
                     <h2>Registro:</h2>
 
-                    <form id="form-registro" onsubmit="event.preventDefault(); validarRegistro();"
-                        class="formulario-registro">
+                    <form id="form-registro" onsubmit="event.preventDefault(); validarRegistro();" class="formulario-registro">
 
                         <div class="grupo-input">
-                            <label for="nombre">Nombre y Apellido/s</label>
-                            <input type="text" id="nombre" name="nombre" placeholder="Ej: Juan Pérez" required>
+                            <label for="nombre">Nombre</label>
+                            <input type="text" id="nombre" name="nombre" placeholder="Ej: Juan" required>
+                        </div>
+
+                        <div class="grupo-input">
+                            <label for="apellidos">Apellidos</label>
+                            <input type="text" id="apellidos" name="apellidos" placeholder="Ej: Pérez García" required>
                         </div>
 
                         <div class="grupo-input">
@@ -86,12 +90,12 @@
 
                         <div class="grupo-input">
                             <label for="pass1">Contraseña</label>
-                            <input type="password" id="pass1" name="pass1" placeholder="••••••••" required>
+                            <input type="password" id="pass1" name="pass1" placeholder="Mínimo 8 carácteres, mayúscula, número..." required>
                         </div>
 
                         <div class="grupo-input">
                             <label for="pass2">Repetir contraseña</label>
-                            <input type="password" id="pass2" name="pass2" placeholder="••••••••" required>
+                            <input type="password" id="pass2" name="pass2" placeholder="Repite la contraseña" required>
                         </div>
 
                         <div class="grupo-input">

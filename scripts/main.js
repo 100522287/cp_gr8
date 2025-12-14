@@ -190,8 +190,13 @@ function actualizarHeaderSesion() {
             // Imagen por defecto si no tiene una
             const imagenPerfil = datosUsuario.avatar || "images/foto_perfil.png";
 
-            // Reemplazar el botón "Iniciar Sesión" por la foto y nombre
+            // Reemplazar el contenido manteniendo el selector de idioma
             panelUsuario.innerHTML = `
+                <select id="selector-idioma" class="selector-idioma" style="margin-right: 15px;">
+                    <option value="es">Español</option>
+                    <option value="en">English</option>
+                </select>
+                
                 <div class="info-usuario-nav" style="display: flex; align-items: center; gap: 10px;">
                     <span style="font-weight: 600; color: #003049;">${datosUsuario.usuario}</span>
                     <img src="${imagenPerfil}" alt="Perfil" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 2px solid #FFB703;">
