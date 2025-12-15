@@ -377,6 +377,7 @@
 }
 
 /* --- PEQUEÑOS MÓVILES (480px y menos) --- */
+/* Ajustes adicionales para pantallas muy pequeñas (solo tamaño fuente) */
 @media only screen and (max-width: 480px) {
     .header-packs h1 {
         font-size: 1.6rem;
